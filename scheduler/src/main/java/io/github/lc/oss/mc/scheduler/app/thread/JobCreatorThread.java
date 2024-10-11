@@ -43,9 +43,7 @@ public class JobCreatorThread extends AbstractThread implements JobCreator {
         }
 
         synchronized (this.lock) {
-            boolean offer = this.toCreate.offer(jobs);
-
-            return offer;
+            return this.toCreate.offer(jobs);
         }
     }
 

@@ -23,6 +23,13 @@ public abstract class AbstractThread implements Runnable {
         this.shouldRun = false;
     }
 
+    /*
+     * Exposed for testing
+     */
+    void setShouldRun(boolean shouldRun) {
+        this.shouldRun = shouldRun;
+    }
+
     protected boolean shouldRun() {
         return this.shouldRun;
     }

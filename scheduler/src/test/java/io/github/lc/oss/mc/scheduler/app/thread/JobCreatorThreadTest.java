@@ -221,6 +221,14 @@ public class JobCreatorThreadTest extends AbstractMockTest {
 
     @Test
     public void test_run_createJob() {
+        /*
+         * This test requires a stopped thread
+         */
+        this.thread.stop();
+        BlockingQueue<List<Job>> toCreate = this.getField("toCreate", this.thread);
+        toCreate.clear();
+        this.thread.setShouldRun(true);
+
         final CallHelper informHelper = new CallHelper();
 
         Job job = new Job();
