@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="expires" content="0">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Menu Template</title>
+</head>
+<body>
+	<div id="menu" class="sidemenu" th:fragment="menu">
+		<div class="item">
+			<div>
+				<span id="btnJobs">[[${application_menu_jobs}]]</span>
+			</div>
+		</div>
+		<div class="item subitem">
+			<div>
+				<span id="btnImport">[[${application_menu_jobs_import}]]</span>
+			</div>
+		</div>
+		<div class="lined"></div>
+		<div class="item">
+			<div>
+				<span id="btnNodes">[[${application_menu_nodes}]]</span>
+			</div>
+		</div>
+		<div class="item subitem">
+			<div>
+				<span id="btnNewNode">[[${application_menu_nodes_new}]]</span>
+			</div>
+		</div>
+		<div class="item subitem">
+			<div>
+				<span id="btnInformNodes">[[${application_menu_nodes_inform}]]</span>
+			</div>
+		</div>
+		<div class="item subitem">
+			<div>
+				<span id="btnRefreshNodes">[[${application_menu_nodes_refresh}]]</span>
+			</div>
+		</div>
+		<div class="lined"></div>
+		<div class="item">
+			<div>
+				<span id="btnSettings">[[${application_menu_settings}]]</span>
+			</div>
+		</div>
+		<div class="lined"></div>
+		<div class="item fixed-last">
+			<div>
+				<span id="btnSignOut"><span class="awesome bold signout">&#xf2f5;</span>[[${application_menu_signout}]]</span>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

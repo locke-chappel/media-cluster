@@ -1,0 +1,18 @@
+/* style.css */
+body > div > div.header > div.spinner {
+    float: right;
+    font-size: 125%;
+    margin-top: 0.75em;
+    margin-right: 0.5em;
+}
+
+body > div > div.header:after,
+body > div.body,
+body > div.footer:before {
+    left: 0em;
+}
+
+
+body > div.body > div.content {
+    text-align: center;
+}

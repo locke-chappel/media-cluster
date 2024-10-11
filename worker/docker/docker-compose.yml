@@ -1,0 +1,27 @@
+services:
+  media-cluster-worker:
+    image: worker:latest
+    container_name: media-cluster-worker
+    restart: unless-stopped
+    user: "9001:9001"
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges
+    read_only: true
+    deploy:
+      resources:
+        limits:
+          cpus: '2.00'
+          memory: 4096M
+    environment:
+      TZ: "America/Los_Angeles"
+      XMX: 256M
+    network_mode: bridge
+    volumes:
+      - "./worker/home/user/app-data:/home/user/app-data"
+      - "./worker/media:/home/user/media"
+      - type: tmpfs
+        target: /tmp
+        tmpfs:
+          size: 8m

@@ -1,0 +1,11 @@
+{
+	"locale" : "en_US",
+	"entries" : {
+		"application.name" : {
+			"value" : "Media Cluster Worker"
+		},
+		"application.title" : {
+			"value" : "#application.name#"
+		}
+	}
+}

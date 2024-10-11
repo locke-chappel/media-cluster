@@ -1,0 +1,74 @@
+/* ffmpeg.css */
+div.ffmpeg div.left,
+div.ffmpeg div.right {
+    display: inline-block;
+    width: 50%;
+    vertical-align: top;
+}
+
+div.ffmpeg div.input {
+    width: 19em;
+}
+
+div.ffmpeg div.input input[type="number"]#txtFfmpegAduioBitrate,
+div.ffmpeg div.input input[type="number"]#txtFfmpegVideoBitrate,
+div.ffmpeg div.input input[type="number"]#txtFfmpegVideoQuality {
+    width: 7em;
+    margin-right: 0.5em;
+}
+
+div.ffmpeg div.input select#ddlFfmpegAudtioBitrate,
+div.ffmpeg div.input select#ddlFfmpegVideoBitrate {
+    width: 5em;
+}
+
+div.ffmpeg div.input select#ddlFfmpegVideoCodecProfileX264,
+div.ffmpeg div.input select#ddlFfmpegVideoCodecProfileX265,
+div.ffmpeg div.input select#ddlFfmpegVideoCodecLevelX264,
+div.ffmpeg div.input select#ddlFfmpegVideoCodecLevelX265 {
+    width: 9.85em;
+}
+
+div.ffmpeg div.input select#ddlFfmpegVideoCodecLevelX264,
+div.ffmpeg div.input select#ddlFfmpegVideoCodecLevelX265 {
+    width: 9.8em;
+}
+
+div.ffmpeg div.input {
+    margin-bottom: 0.75em;
+}
+
+div.ffmpeg div.input select {
+    width: 20em;
+}
+
+div.ffmpeg div.input input[type="number"]#txtSliceLength {
+    width: 7em;
+    margin-right: 0.5em;
+}
+
+div.ffmpeg div.input input[type="number"]#txtSliceLength:read-only {
+    background-color: #AAAAAA;
+}
+
+div.ffmpeg div.input textarea {
+    width: 19.3em;
+    height: 8em;
+}
+
+div.ffmpeg div.checkboxes div.input.checkbox.inline {
+    min-width: 9.5em;
+    width: auto;
+}
+
+div.ffmpeg div.checkboxes div.input {
+    margin-bottom: 0.25em;
+}
+
+div.ffmpeg div.checkboxes div.input:last-child {
+    margin-bottom: 0.75em;
+}
+
+div.ffmpeg div.checkboxes div.input span.lbl {
+    font-weight: bold;
+}

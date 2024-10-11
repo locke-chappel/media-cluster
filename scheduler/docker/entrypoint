@@ -1,0 +1,8 @@
+#!/bin/sh
+
+exec java \
+  -Xmx${XMX} \
+  -Dspring.security.egd=file:/dev/./urandom \
+  -Djdk.tls.ephemeralDHKeySize=4096 \
+  -Dspring.config.additional-location=optional:/home/user/app-data/ \
+  -jar /home/user/app.jar

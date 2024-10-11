@@ -1,0 +1,48 @@
+/* jobs.css */
+body.jobs div.cell {
+    width: 37em;
+}
+
+body.jobs div.search div.header div.input > div.lbl > span.lbl {
+    text-align: right;
+}
+
+body.jobs div.search div.header div.input > input[type="text"] {
+    width: 29em;
+}
+
+body.jobs div.search div.searchResults table tr > th:nth-child(2) {
+    width: 5em;
+}
+
+body.jobs div.search div.searchResults table tr > th:nth-child(3) {
+    width: 1em;
+    text-align: center;
+}
+
+body.jobs div.details > div.info {
+    margin-bottom: 1em;    
+}
+
+body.jobs div.details > div.info > div.input {
+    display: inline-block;
+    width: 50%;
+    vertical-align: top;
+}
+
+body.jobs div.details > div.info > div.input > div.lbl > span.lbl {
+    font-weight: bold;
+}
+
+body.jobs div.details div.input select {
+    width: 20em;
+}
+
+body.jobs div.details div.input span.value {
+    font-style: italic;
+    margin-left: 0.5em;
+}
+
+body.jobs div.modal#deleteJob > div.dialog{
+    max-width: 40em;
+}

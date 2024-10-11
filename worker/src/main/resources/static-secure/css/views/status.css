@@ -1,0 +1,31 @@
+/* status.css */
+body.status > div > div.header {
+    background-image: url("#context.path.resource#img/views/status-header.svgz");
+}
+
+body.status div.body {
+    left: 0em;
+}
+
+body.status div.content {
+    text-align: center;
+}
+
+body.status div.info span.label {
+    display: inline-block;
+    width: 7em;
+    text-align: right;
+    margin-right: 0.5em;
+}
+
+body.status div.info span.label::after {
+    content: ":";
+}
+
+body.status div.info span.value {
+    font-style: italic;
+}
+
+body div.body div.content div.cell {
+    width: 45%;
+}

@@ -1,0 +1,29 @@
+services:
+  media-cluster-scheduler:
+    image: scheudler:latest
+    container_name: media-cluster-scheduler
+    restart: unless-stopped
+    user: "9001:9001"
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges
+    read_only: true
+    deploy:
+      resources:
+        limits:
+          cpus: '2.00'
+          memory: 512M
+    environment:
+      TZ: "America/Los_Angeles"
+      XMX: 256M
+    ports:
+      - "8080:8080/tcp"
+    network_mode: bridge
+    volumes:
+      - "./scheduler/home/user/app-data:/home/user/app-data"
+      - "./scheduler/media:/home/user/media"
+      - type: tmpfs
+        target: /tmp
+        tmpfs:
+          size: 8m

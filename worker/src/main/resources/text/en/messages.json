@@ -1,0 +1,37 @@
+{
+	"locale" : "en_US",
+	"entries" : {
+		"messages.Application.Error.1" : {
+			"value" : "Something went wrong...",
+			"public" : true
+		},
+		"messages.Application.Error.2" : {
+			"value" : "%Field% is required"
+		},
+		"messages.Application.Error.3" : {
+			"value" : "%Field% is not valid"
+		},
+		"messages.Application.Error.100" : {
+            "value" : "Invalid Operation"
+        },
+		"messages.Application.Error.404" : {
+			"value" : "Not Found"
+		},
+		"messages.Application.Error.2001" : {
+			"value" : "Invalid Node"
+		},
+		"messages.Application.Error.3001" : {
+			"value" : "Worker is currently processing a job and cannot accept another at this time."
+		},
+		"messages.Application.Error.3011" : {
+			"value" : "FailedToStartJob"
+		},
+		
+		"messages.Authentication.Error.1004" : {
+			"value" : "Expired request"
+		},
+		"messages.Authentication.Error.1005" : {
+			"value" : "Invalid signature"
+		}
+	}
+}

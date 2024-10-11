@@ -1,0 +1,14 @@
+{
+	"locale" : "en_US",
+	"entries" : {
+		"login.username" : {
+			"value" : "Username"
+		},
+		"login.password" : {
+			"value" : "Password"
+		},
+		"login.buttons.login" : {
+		  "value" : "Log In"
+		}
+	}
+}

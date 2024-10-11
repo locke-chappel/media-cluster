@@ -1,0 +1,261 @@
+{
+	"locale" : "en_US",
+	"entries" : {
+		"ffmpeg.audio.channels" : {
+			"value" : "Audio Channels"
+		},
+		"ffmpeg.audio.channels.same" : {
+			"value" : "Same as Source"
+		},
+		"ffmpeg.audio.channels.1" : {
+			"value" : "1 (Mono)"
+		},
+		"ffmpeg.audio.channels.2" : {
+			"value" : "2 (Stereo)"
+		},
+		"ffmpeg.audio.channels.4" : {
+			"value" : "4 (Quadratic)"
+		},
+		"ffmpeg.audio.channels.6" : {
+			"value" : "5.1 (Surround)"
+		},
+		"ffmpeg.audio.channels.7" : {
+			"value" : "6.1 (Surround)"
+		},
+		"ffmpeg.audio.channels.8" : {
+			"value" : "7.1 (Surround)"
+		},
+		
+		"ffmpeg.audio.codec" : {
+			"value" : "Audio Codec"
+		},
+		"ffmpeg.audio.codec.aac" : {
+			"value" : "AAC"
+		},
+		"ffmpeg.audio.codec.copy" : {
+			"value" : "Copy"
+		},
+		"ffmpeg.audio.codec.flac" : {
+			"value" : "FLAC"
+		},
+		"ffmpeg.audio.codec.mp3" : {
+			"value" : "MP3"
+		},
+		"ffmpeg.audio.codec.none" : {
+			"value" : "Disable Audio"
+		},
+		"ffmpeg.audio.codec.opus" : {
+			"value" : "Opus"
+		},
+		"ffmpeg.audio.codec.other" : {
+			"value" : "Other/Custom"
+		},
+		"ffmpeg.audio.codec.vorbis" : {
+			"value" : "Vorbis"
+		},
+		
+		"ffmpeg.audio.bitrate" : {
+			"value" : "Audio Bitrate (0 = auto)"
+		},
+		"ffmpeg.audio.bitrate.units.bits" : {
+			"value" : "Bits"
+		},
+		"ffmpeg.audio.bitrate.units.kb" : {
+			"value" : "KBits"
+		},
+		"ffmpeg.audio.bitrate.units.mb" : {
+			"value" : "MBits"
+		},
+		
+		"ffmpeg.audio.args" : {
+			"value" : "CLI Arguments (Audio)"
+		},
+		"ffmpeg.common.args" : {
+			"value" : "CLI Arguments (Common)"
+		},
+		"ffmpeg.video.args" : {
+			"value" : "CLI Arguments (Video)"
+		},
+		
+		"ffmpeg.ext" : {
+			"value" : "Output Format"
+		},
+		"ffmpeg.ext.avi" : {
+			"value" : "AVI"
+		},
+		"ffmpeg.ext.mpeg" : {
+			"value" : "MPEG-2"
+		},
+		"ffmpeg.ext.mp4" : {
+			"value" : "MPEG-4"
+		},
+		"ffmpeg.ext.mkv" : {
+			"value" : "MKV"
+		},
+		"ffmpeg.ext.ts" : {
+			"value" : "TS"
+		},
+		"ffmpeg.ext.m2ts" : {
+			"value" : "M2TS"
+		},
+		
+		"ffmpeg.filters.deinterlace" : {
+			"value" : "Deinterlace"
+		},
+		"ffmpeg.filters.denoise" : {
+			"value" : "Denoise"
+		},
+		"ffmpeg.filters.deshake" : {
+			"value" : "Deshake"
+		},
+		"ffmpeg.filters.smartblur" : {
+			"value" : "Smart Blur"
+		},
+		
+		"ffmpeg.maxqueue" : {
+			"value" : "Increase Max Queue Size"
+		},
+		
+		"ffmpeg.options" : {
+			"value" : "Common Options"
+		},
+		
+		"ffmpeg.preset" : {
+			"value" : "Preset"
+		},
+		"ffmpeg.presets.default" : {
+			"value" : "default"
+		},
+		"ffmpeg.presets.ultrafast" : {
+			"value" : "ultrafast"
+		},
+		"ffmpeg.presets.superfast" : {
+			"value" : "superfast"
+		},
+		"ffmpeg.presets.veryfast" : {
+			"value" : "veryfast"
+		},
+		"ffmpeg.presets.faster" : {
+			"value" : "faster"
+		},
+		"ffmpeg.presets.fast" : {
+			"value" : "fast"
+		},
+		"ffmpeg.presets.medium" : {
+			"value" : "medium"
+		},
+		"ffmpeg.presets.slow" : {
+			"value" : "slow"
+		},
+		"ffmpeg.presets.slower" : {
+			"value" : "slower"
+		},
+		"ffmpeg.presets.veryslow" : {
+			"value" : "veryslow"
+		},
+		"ffmpeg.presets.placebo" : {
+			"value" : "placebo"
+		},
+		        
+		"ffmpeg.video.codec" : {
+			"value" : "Video Codec"
+		},
+		"ffmpeg.video.codec.mpeg4" : {
+			"value" : "MPEG-4"
+		},
+		"ffmpeg.video.codec.none" : {
+			"value" : "Disable Video"
+		},
+		"ffmpeg.video.codec.nvenc.h264" : {
+			"value" : "AVC (NVENC)"
+		},
+		"ffmpeg.video.codec.nvenc.hevc" : {
+			"value" : "HEVC (NVENC)"
+		},
+		"ffmpeg.video.codec.other" : {
+			"value" : "Other/Custom"
+		},
+		"ffmpeg.video.codec.x264" : {
+			"value" : "AVC (H.264)"
+		},
+		"ffmpeg.video.codec.x265" : {
+			"value" : "HEVC (H.265)"
+		},
+		
+		"ffmpeg.video.codec.profile" : {
+			"value" : "Video Codec Profile"
+		},
+		"ffmpeg.video.codec.profile.default" : {
+			"value" : "Automatic Profile"
+		},
+		"ffmpeg.video.codec.profile.x264.baseline" : {
+			"value" : "Baseline"
+		},
+		"ffmpeg.video.codec.profile.x264.main" : {
+			"value" : "Main"
+		},
+		"ffmpeg.video.codec.profile.x264.high" : {
+			"value" : "High"
+		},
+		"ffmpeg.video.codec.profile.x264.high10" : {
+			"value" : "High 10"
+		},
+		"ffmpeg.video.codec.profile.x264.high422" : {
+			"value" : "High 4:2:2"
+		},
+		"ffmpeg.video.codec.profile.x264.high444" : {
+			"value" : "High 4:4:4"
+		},
+		"ffmpeg.video.codec.profile.x265.high" : {
+			"value" : "High"
+		},
+		"ffmpeg.video.codec.profile.x265.main" : {
+			"value" : "Main"
+		},
+		"ffmpeg.video.codec.level.default" : {
+			"value" : "Automatic Level"
+		},
+		"ffmpeg.video.codec.level" : {
+			"value" : "Level"
+		},
+		
+		"ffmpeg.video.options" : {
+			"value" : "Video Options"
+		},
+		
+		"ffmpeg.video.quality.mode" : {
+			"value" : "Video Quality Mode"
+		},
+		"ffmpeg.video.quality.cbr" : {
+			"value" : "Constant Bitrate"
+		},
+		"ffmpeg.video.quality.crf" : {
+			"value" : "Constant Quality"
+		},
+		"ffmpeg.video.bitrate" : {
+			"value" : "Video Bitrate (0 = auto)"
+		},
+		"ffmpeg.video.bitrate.units.bits" : {
+            "value" : "#ffmpeg.audio.bitrate.units.bits#"
+        },
+        "ffmpeg.video.bitrate.units.kb" : {
+            "value" : "#ffmpeg.audio.bitrate.units.kb#"
+        },
+        "ffmpeg.video.bitrate.units.mb" : {
+            "value" : "#ffmpeg.audio.bitrate.units.mb#"
+        },
+		"ffmpeg.video.quality.factor" : {
+			"value" : "Video Quality Factor"
+		},
+		"ffmpeg.video.sliceLength" : {
+			"value" : "Slice Length (frames)"
+		},
+		"ffmpeg.video.sliceLength.disabled" : {
+            "value" : "Disable Slicing"
+        },
+		
+		"ffmpeg.video.tenbit" : {
+			"value" : "10-Bit Video"
+		}
+	}
+}

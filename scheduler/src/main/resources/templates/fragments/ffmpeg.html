@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="expires" content="0">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FFMPEG Settings Template</title>
+</head>
+<body>
+	<div id="ffmpeg" class="ffmpeg" th:fragment="ffmpeg">
+		<div class="left">
+			<div class="input">
+				<div class="lbl">
+					<span class="lbl required">[[${ffmpeg_audio_codec}]]</span>
+				</div>
+				<select id="ddlFfmpegAudioCodec">
+				    <option value="-an">[[${ffmpeg_audio_codec_none}]]</option>
+					<option value="-c:a copy">[[${ffmpeg_audio_codec_copy}]]</option>
+					<option value="-c:a aac">[[${ffmpeg_audio_codec_aac}]]</option>
+					<option value="-c:a flac">[[${ffmpeg_audio_codec_flac}]]</option>
+					<option value="-c:a libmp3lame">[[${ffmpeg_audio_codec_mp3}]]</option>
+					<option value="-c:a opus">[[${ffmpeg_audio_codec_opus}]]</option>
+					<option value="-c:a vorbis">[[${ffmpeg_audio_codec_vorbis}]]</option>
+					<option value="">[[${ffmpeg_audio_codec_other}]]</option>
+				</select> 
+			</div>
+			<div id="ffmpegAudioBitrate" class="input hidden">
+				<div class="lbl">
+					<span class="lbl required">[[${ffmpeg_audio_bitrate}]]</span>
+				</div>
+				<input id="txtFfmpegAduioBitrate" type="number" min="0" max="100000000" value="0" /><select id="ddlFfmpegAudtioBitrate">
+					<option value="">[[${ffmpeg_audio_bitrate_units_bits}]]</option>
+					<option value="k">[[${ffmpeg_audio_bitrate_units_kb}]]</option>
+					<option value="m">[[${ffmpeg_audio_bitrate_units_mb}]]</option>
+				</select>
+			</div>
+			<div id="ffmpegAudioChannels" class="input hidden">
+				<div class="lbl">
+					<span class="lbl required">[[${ffmpeg_audio_channels}]]</span>
+				</div>
+				<select id="ddlFfmpegAudioChannels">
+					<option value="">[[${ffmpeg_audio_channels_same}]]</option>
+					<option value="1">[[${ffmpeg_audio_channels_1}]]</option>
+					<option value="2">[[${ffmpeg_audio_channels_2}]]</option>
+					<option value="4">[[${ffmpeg_audio_channels_4}]]</option>
+					<option value="6">[[${ffmpeg_audio_channels_6}]]</option>
+					<option value="7">[[${ffmpeg_audio_channels_7}]]</option>
+					<option value="8">[[${ffmpeg_audio_channels_8}]]</option>
+				</select> 
+			</div>
+			<div class="input">
+				<div class="lbl">
+					<span class="lbl required">[[${ffmpeg_video_codec}]]</span>
+				</div>
+				<select id="ddlFfmpegVideoCodec">
+				    <option value="-vn">[[${ffmpeg_video_codec_none}]]</option>
+					<option value="-c:v mpeg4">[[${ffmpeg_video_codec_mpeg4}]]</option>
+					<option value="-c:v libx264">[[${ffmpeg_video_codec_x264}]]</option>
+					<option value="-c:v h264_nvenc">[[${ffmpeg_video_codec_nvenc_h264}]]</option>
+					<option value="-c:v libx265">[[${ffmpeg_video_codec_x265}]]</option>
+					<option value="-c:v hevc_nvenc">[[${ffmpeg_video_codec_nvenc_hevc}]]</option>
+					<option value="">[[${ffmpeg_video_codec_other}]]</option>
+				</select>
+			</div>
+			<div id="ffmpegPreset" class="input hidden">
+				<div class="lbl">
+					<span class="lbl required">[[${ffmpeg_preset}]]</span>
+				</div>
+				<select id="ddlFfmpegPreset">
+					<option value="ultrafast">[[${ffmpeg_presets_ultrafast}]]</option>
+					<option value="superfast">[[${ffmpeg_presets_superfast}]]</option>
+					<option value="veryfast">[[${ffmpeg_presets_veryfast}]]</option>
+					<option value="faster">[[${ffmpeg_presets_faster}]]</option>
+					<option value="fast">[[${ffmpeg_presets_fast}]]</option>
+					<option value="medium">[[${ffmpeg_presets_medium}]]</option>
+					<option value="slow">[[${ffmpeg_presets_slow}]]</option>
+					<option value="slower">[[${ffmpeg_presets_slower}]]</option>
+					<option value="veryslow">[[${ffmpeg_presets_veryslow}]]</option>
+					<option value="placebo">[[${ffmpeg_presets_placebo}]]</option>
+				</select> 
+			</div>
+			<div id="ffmpegNvencPreset" class="input hidden">
+				<div class="lbl">
+					<span class="lbl required">[[${ffmpeg_preset}]]</span>
+				</div>
+				<select id="ddlFfmpegNvencPreset">
+					<option value="default">[[${ffmpeg_presets_default}]]</option>
+					<option value="slow">[[${ffmpeg_presets_slow}]]</option>
+					<option value="medium">[[${ffmpeg_presets_medium}]]</option>
+					<option value="fast">[[${ffmpeg_presets_fast}]]</option>
+				</select> 
+			</div>
+			<div id="ffmpegVideoCodecProfileX264" class="input hidden">
+				<div class="lbl">
+					<span class="lbl required">[[${ffmpeg_video_codec_profile}]]</span>
+				</div>
+				<select id="ddlFfmpegVideoCodecProfileX264">
+				    <option value="">[[${ffmpeg_video_codec_profile_default}]]</option>
+				    <option value="-profile:v baseline">[[${ffmpeg_video_codec_profile_x264_baseline}]]</option>
+				    <option value="-profile:v main">[[${ffmpeg_video_codec_profile_x264_main}]]</option>
+				    <option value="-profile:v high">[[${ffmpeg_video_codec_profile_x264_high}]]</option>
+				    <option value="-profile:v high10">[[${ffmpeg_video_codec_profile_x264_high10}]]</option>
+				    <option value="-profile:v high422">[[${ffmpeg_video_codec_profile_x264_high422}]]</option>
+				    <option value="-profile:v high444">[[${ffmpeg_video_codec_profile_x264_high444}]]</option>
+				</select>
+				<select id="ddlFfmpegVideoCodecLevelX264">
+				    <option value="">[[${ffmpeg_video_codec_level_default}]]</option>
+				    <option value="-level:v 1">[[${ffmpeg_video_codec_level}]] 1</option>
+				    <option value="-level:v 1b">[[${ffmpeg_video_codec_level}]] 1b</option>
+				    <option value="-level:v 1.1">[[${ffmpeg_video_codec_level}]] 1.1</option>
+				    <option value="-level:v 1.2">[[${ffmpeg_video_codec_level}]] 1.2</option>
+				    <option value="-level:v 1.3">[[${ffmpeg_video_codec_level}]] 1.3</option>
+				    <option value="-level:v 2">[[${ffmpeg_video_codec_level}]] 2</option>
+				    <option value="-level:v 2.1">[[${ffmpeg_video_codec_level}]] 2.1</option>
+				    <option value="-level:v 2.2">[[${ffmpeg_video_codec_level}]] 2.2</option>
+				    <option value="-level:v 3">[[${ffmpeg_video_codec_level}]] 3</option>
+				    <option value="-level:v 3.1">[[${ffmpeg_video_codec_level}]] 3.1</option>
+				    <option value="-level:v 3.2">[[${ffmpeg_video_codec_level}]] 3.2</option>
+				    <option value="-level:v 4">[[${ffmpeg_video_codec_level}]] 4</option>
+					<option value="-level:v 4.1">[[${ffmpeg_video_codec_level}]] 4.1</option>
+					<option value="-level:v 4.2">[[${ffmpeg_video_codec_level}]] 4.2</option>
+					<option value="-level:v 5">[[${ffmpeg_video_codec_level}]] 5</option>
+					<option value="-level:v 5.1">[[${ffmpeg_video_codec_level}]] 5.1</option>
+					<option value="-level:v 5.2">[[${ffmpeg_video_codec_level}]] 5.2</option>
+					<option value="-level:v 6">[[${ffmpeg_video_codec_level}]] 6</option>
+					<option value="-level:v 6.1">[[${ffmpeg_video_codec_level}]] 6.1</option>
+					<option value="-level:v 6.2">[[${ffmpeg_video_codec_level}]] 6.2</option>
+				</select>
+			</div>
+			<div id="ffmpegVideoCodecProfileX265" class="input hidden">
+				<div class="lbl">
+					<span class="lbl required">[[${ffmpeg_video_codec_profile}]]</span>
+				</div>
+				<select id="ddlFfmpegVideoCodecProfileX265">
+				    <option value="">[[${ffmpeg_video_codec_profile_default}]]</option>
+				    <option value="-profile:v main">[[${ffmpeg_video_codec_profile_x265_main}]]</option>
+					<option value="-profile:v high">[[${ffmpeg_video_codec_profile_x265_high}]]</option>
+				</select>
+				<select id="ddlFfmpegVideoCodecLevelX265">
+				    <option value="">[[${ffmpeg_video_codec_level_default}]]</option>
+					<option value="-level:v 1">[[${ffmpeg_video_codec_level}]] 1</option>
+				    <option value="-level:v 2">[[${ffmpeg_video_codec_level}]] 2</option>
+				    <option value="-level:v 2.1">[[${ffmpeg_video_codec_level}]] 2.1</option>
+				    <option value="-level:v 3">[[${ffmpeg_video_codec_level}]] 3</option>
+				    <option value="-level:v 3.1">[[${ffmpeg_video_codec_level}]] 3.1</option>
+				    <option value="-level:v 4">[[${ffmpeg_video_codec_level}]] 4</option>
+				    <option value="-level:v 4.1">[[${ffmpeg_video_codec_level}]] 4.1</option>
+				    <option value="-level:v 5">[[${ffmpeg_video_codec_level}]] 5</option>
+				    <option value="-level:v 5.1">[[${ffmpeg_video_codec_level}]] 5.1</option>
+				    <option value="-level:v 5.2">[[${ffmpeg_video_codec_level}]] 5.2</option>
+				    <option value="-level:v 6">[[${ffmpeg_video_codec_level}]] 6</option>
+				    <option value="-level:v 6.1">[[${ffmpeg_video_codec_level}]] 6.1</option>
+				    <option value="-level:v 6.2">[[${ffmpeg_video_codec_level}]] 6.2</option>
+				</select>
+			</div>
+			<div id="ffmpegVideoQualityMode" class="input hidden">
+				<div class="lbl">
+					<span class="lbl required">[[${ffmpeg_video_quality_mode}]]</span>
+				</div>
+				<select id="ddlFfmpegVideoQualityMode">
+					<option value="cbr">[[${ffmpeg_video_quality_cbr}]]</option>
+					<option value="crf">[[${ffmpeg_video_quality_crf}]]</option>
+				</select>
+			</div>
+			<div id="ffmpegVideoBitrate" class="input hidden">
+				<div class="lbl">
+					<span class="lbl required">[[${ffmpeg_video_bitrate}]]</span>
+				</div>
+				<input id="txtFfmpegVideoBitrate" type="number" min="0" max="100000000" value="0" /><select id="ddlFfmpegVideoBitrate">
+					<option value="">[[${ffmpeg_video_bitrate_units_bits}]]</option>
+					<option value="k">[[${ffmpeg_video_bitrate_units_kb}]]</option>
+					<option value="m">[[${ffmpeg_video_bitrate_units_mb}]]</option>
+				</select>
+			</div>
+			<div id="ffmpegVideoQuality" class="input hidden">
+				<div class="lbl">
+					<span class="lbl required">[[${ffmpeg_video_quality_factor}]]</span>
+				</div>
+				<input id="txtFfmpegVideoQuality" type="number" min="0" max="100" value="24" />
+			</div>
+			<div id="ffmpegVideoOptions" class="checkboxes hidden">
+				<div class="input">
+					<div class="lbl">
+						<span class="lbl">[[${ffmpeg_video_options}]]</span>
+					</div>
+				</div>
+				<div class="input checkbox inline styled">
+					<input id="chkDeinterlace" type="checkbox" />
+					<label for="chkDeinterlace" class="lbl">[[${ffmpeg_filters_deinterlace}]]</label> 
+				</div>
+				<div class="input checkbox inline styled">
+					<input id="chkDenoise" type="checkbox" />
+					<label for="chkDenoise" class="lbl">[[${ffmpeg_filters_denoise}]]</label> 
+				</div>
+				<div class="input checkbox inline styled">
+					<input id="chkDeshake" type="checkbox" />
+					<label for="chkDeshake" class="lbl">[[${ffmpeg_filters_deshake}]]</label> 
+				</div>
+				<div class="input checkbox inline styled">
+					<input id="chkSmartBlur" type="checkbox" />
+					<label for="chkSmartBlur" class="lbl">[[${ffmpeg_filters_smartblur}]]</label> 
+				</div>
+				<div class="input checkbox inline styled">
+					<input id="chkTenBit" type="checkbox" />
+					<label for="chkTenBit" class="lbl">[[${ffmpeg_video_tenbit}]]</label> 
+				</div>
+				<div class="input">
+					<div class="lbl">
+						<span class="lbl">[[${ffmpeg_video_sliceLength}]]</span>
+					</div>
+					<input id="txtSliceLength" type="number" min="1" max="999999999" /><!-- 
+                 --><div class="input checkbox inline styled">
+                        <input id="chkSliceLength" type="checkbox" />
+                        <label for="chkSliceLength" class="lbl">[[${ffmpeg_video_sliceLength_disabled}]]</label> 
+                    </div>
+				</div>
+			</div>
+			<div class="checkboxes">
+				<div class="input">
+					<div class="lbl">
+						<span class="lbl">[[${ffmpeg_options}]]</span>
+					</div>
+				</div>
+				<div class="input checkbox inline styled">
+					<input id="chkMaxQueue" type="checkbox" />
+					<label for="chkMaxQueue" class="lbl">[[${ffmpeg_maxqueue}]]</label> 
+				</div>
+			</div>
+		</div><!--
+     --><div class="right">
+			<div class="input">
+				<div class="lbl">
+					<span class="lbl required">[[${ffmpeg_ext}]]</span>
+				</div>
+				<select id="ddlFfmpegExt">
+					<option value="avi">[[${ffmpeg_ext_avi}]]</option>
+					<option value="mpeg">[[${ffmpeg_ext_mpeg}]]</option>
+					<option value="mp4">[[${ffmpeg_ext_mp4}]]</option>
+					<option value="mkv">[[${ffmpeg_ext_mkv}]]</option>
+					<option value="ts">[[${ffmpeg_ext_ts}]]</option>
+					<option value="m2ts">[[${ffmpeg_ext_m2ts}]]</option>
+				</select> 
+			</div>
+			<div class="input">
+				<div class="lbl">
+					<span class="lbl required">[[${ffmpeg_audio_args}]]</span>
+				</div>
+				<textarea id="txtFfmpegAudioArgs" th:maxlength="${T(io.github.lc.oss.mc.entity.Constants$Lengths).CLI}"></textarea> 
+			</div>
+			<div class="input">
+				<div class="lbl">
+					<span class="lbl required">[[${ffmpeg_video_args}]]</span>
+				</div>
+				<textarea id="txtFfmpegVideoArgs" th:maxlength="${T(io.github.lc.oss.mc.entity.Constants$Lengths).CLI}"></textarea> 
+			</div>
+			<div class="input">
+				<div class="lbl">
+					<span class="lbl required">[[${ffmpeg_common_args}]]</span>
+				</div>
+				<textarea id="txtFfmpegCommonArgs" th:maxlength="${T(io.github.lc.oss.mc.entity.Constants$Lengths).CLI}"></textarea> 
+			</div>
+		</div>
+	</div>
+</body>
+</html>

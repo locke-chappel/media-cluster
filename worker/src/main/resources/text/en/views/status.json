@@ -1,0 +1,31 @@
+{
+	"locale" : "en_US",
+	"entries" : {
+		"status.node.header" : {
+			"value" : "Node Information"
+		},
+		"status.node.clusterName" : {
+			"value" : "Cluster Name"
+		},
+		"status.node.name" : {
+			"value" : "Node Name"
+		},
+		
+		
+		"status.job.header" : {
+			"value" : "Job Information"
+		},
+		"status.job.id" : {
+			"value" : "ID"
+		},
+		"status.job.type" : {
+			"value" : "Type"
+		},
+		"status.job.source" : {
+			"value" : "Source"
+		},
+		"status.job.none" : {
+			"value" : "This node is ready to accept a job"
+		}
+	}
+}

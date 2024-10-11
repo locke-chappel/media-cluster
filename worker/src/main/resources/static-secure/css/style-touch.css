@@ -1,0 +1,10 @@
+/* style-touch.css */
+@media (pointer: coarse) {
+    body > div > div.header {
+        background-size: auto;
+    }
+    
+    body div.body div.content div.cell {
+        width: 22em;
+    }
+}

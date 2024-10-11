@@ -1,0 +1,41 @@
+/* settings.css */
+body.settings > div > div.header {
+    background-image: url("#context.path.resource#img/views/USER/settings-header.svgz");
+}
+
+body.settings div.content > div.profiles {
+    width: 37em;
+}
+
+body.settings div.commands button {
+    width: 6em;
+    min-width: 6em;
+}
+
+body.settings div.content>div.right {
+    display: inline-block;
+    width: 37em;
+    text-align: left;
+}
+
+body.settings div.content>div.right>div.cell {
+    width: 16em;
+}
+
+body.settings div.modal div.body div.backup {
+    padding-top: 0.25em;
+    text-align: left;
+}
+
+body.settings div.modal div.body div.backup div.input span.lbl {
+    width: 5em;
+}
+
+body.settings div.modal div.body div.backupConfirm {
+    max-width: 25em;
+}
+
+body.settings div.modal div.body div.backupConfirm span {
+    display: block;
+    margin-bottom: 1em;
+}

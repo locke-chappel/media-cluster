@@ -1,0 +1,87 @@
+{
+	"locale" : "en_US",
+	"entries" : {
+		"nodes.node.header" : {
+			"value" : "Node Details"
+		},
+		"nodes.node.clusterName" : {
+			"value" : "Cluster Name"
+		},
+		"nodes.node.clusterName.new" : {
+			"value" : "- New Cluster -",
+			"public" : true
+		},
+		"nodes.node.name" : {
+			"value" : "Name"
+		},
+		"nodes.node.allowedTypes" : {
+			"value" : "Job Types"
+		},
+		"nodes.node.url" : {
+			"value" : "URL"
+		},
+		
+		"nodes.node.buttons.config" : {
+			"value" : "Reset Config"
+		},
+		
+		"nodes.node.config.title" : {
+			"value" : "Node Configuration",
+			"public" : true
+		},
+		
+		"nodes.node.newConfig.title" : {
+			"value" : "Reset Node Configuration",
+			"public" : true
+		},
+				
+		"nodes.search.header" : {
+			"value" : "Nodes"
+		},
+		"nodes.search.terms.text" : {
+			"value" : "Search"
+		},
+		"nodes.search.columns.clusterName" : {
+			"value" : "Cluster Name",
+			"public" : true
+		},
+		"nodes.search.columns.delete.tooltip" : {
+			"value" : "Delete this Node",
+			"public" : true
+		},
+		"nodes.search.columns.name" : {
+			"value" : "Name",
+			"public" : true
+		},
+		"nodes.search.columns.name.tooltip" : {
+			"value" : "Edit Node",
+			"public" : true
+		},
+		"nodes.search.columns.status" : {
+			"value" : "Status",
+			"public" : true
+		},
+		"nodes.search.columns.url" : {
+			"value" : "URL",
+			"public" : true
+		},
+		"nodes.search.columns.url.tooltip" : {
+			"value" : "Visit Node",
+			"public" : true
+		},
+		
+		"nodes.node.delete.title" : {
+			"value" : "#global.modal.confirm.header#",
+			"public" : true
+		},
+		"nodes.node.delete.message" : {
+			"value" : "Deleting the Node '%Name%' will permanently remove it from the system.",
+			"public" : true
+		},
+		
+		"nodes.node.newConfig.message" : {
+			"value" : "Generating new configuration for '%Name%' will invalidate the existing configuration.",
+			"public" : true
+		}
+	}
+}

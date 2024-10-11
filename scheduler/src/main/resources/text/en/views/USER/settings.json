@@ -1,0 +1,89 @@
+{
+	"locale" : "en_US",
+	"entries" : {
+	    "settings.backup.header" : {
+			"value" : "Backup & Restore"
+		},
+		"settings.backup.backup" : {
+			"value" : "Backup"
+		},
+		"settings.backup.file" : {
+			"value" : "File",
+			"public" : true
+		},
+		"settings.backup.fileName" : {
+			"value" : "%node% - %date%.backup",
+			"public" : true
+		},
+		"settings.backup.password" : {
+			"value" : "Password",
+			"public" : true
+		},
+		"settings.backup.restore" : {
+			"value" : "Restore",
+			"public" : true
+		},
+		"settings.backup.modal.save.title" : {
+		    "value" : "Save Backup to File",
+		    "public" : true 
+		},
+		"settings.backup.modal.restore.title" : {
+			"value" : "Restore Database From Backup",
+			"public" : true
+		},
+		"settings.backup.modal.restore.select" : {
+			"value" : "Select File",
+			"public" : true
+		},
+		"settings.backup.modal.restore.select.label" : {
+			"value" : "Backup File",
+			"public" : true
+		},
+		"settings.backup.modal.restore.warning.1" : {
+			"value" : "Restoring from backup will overwrite all data in the database with the contents of the backup.",
+			"public" : true
+		},
+		"settings.backup.modal.restore.warning.2" : {
+			"value" : "All Jobs and Job History will be deleted.",
+			"public" : true
+		},
+		"settings.backup.modal.restore.warning.3" : {
+			"value" : "Please ensure that there are no active Jobs before proceeding.",
+			"public" : true
+		},
+		
+		"settings.user.header" : {
+			"value" : "User Settings"
+		},
+		"settings.user.username" : {
+			"value" : "Username"
+		},
+		"settings.user.password" : {
+			"value" : "Password"
+		},
+		"settings.user.confirm" : {
+			"value" : "Confirm"
+		},
+		
+		"settings.scheduler.header" : {
+			"value" : "Scheduler Settings"
+		},
+		"settings.scheduler.name" : {
+			"value" : "Name"
+		},
+		"settings.scheduler.url" : {
+			"value" : "URL"
+		},
+		
+		"settings.profiles.header" : {
+			"value" : "Encoding Profiles"
+		},
+		"settings.profiles.profile" : {
+			"value" : "Profile Name"
+		},
+		"settings.profiles.new" : {
+			"value" : "- New Profile -",
+			"public" : true
+		}
+	}
+}

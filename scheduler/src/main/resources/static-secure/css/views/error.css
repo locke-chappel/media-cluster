@@ -1,0 +1,12 @@
+/* error.css */
+body.error > div > div.header {
+    background-image: url("#context.path.resource#img/views/error-header.svgz");
+}
+
+body.error div.body {
+    left: 0em;
+}
+
+body.error div.content {
+    text-align: center;
+}

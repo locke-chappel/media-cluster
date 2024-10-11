@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="expires" content="0">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[[${application_title}]]</title>
+<link type="text/css" rel="stylesheet" th:href="@{/css}" />
+<script type="text/javascript" th:src="@{/js}" defer></script>
+</head>
+<body class="error">
+	<div th:replace="~{fragments/header.html :: header}"></div>
+	<div class="body">
+		<div id="content" class="content">[[${error_message}]]</div>
+	</div>
+	<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

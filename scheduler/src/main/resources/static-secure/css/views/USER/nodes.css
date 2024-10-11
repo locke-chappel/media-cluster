@@ -1,0 +1,78 @@
+/* nodes.css */
+body.nodes > div > div.header {
+    background-image: url("#context.path.resource#img/views/USER/nodes-header.svgz");
+}
+
+body.nodes div.search div.header div.input > div.lbl > span.lbl {
+    text-align: right;
+}
+
+body.nodes div.search div.header div.input > input[type="text"] {
+    width: 29em;
+}
+
+body.nodes div.search div.searchResults table tr > th:nth-child(1),
+body.nodes div.search div.searchResults table tr > th:nth-child(2) {
+    width: 9em;
+}
+
+body.nodes div.search div.searchResults table tr > th:nth-child(3) {
+    width: 5em;
+}
+
+body.nodes div.search div.searchResults table tr > th:nth-child(4) {
+    min-width: 20em;
+}
+
+body.nodes div.search div.searchResults table tr > th:nth-child(5) {
+    width: 1em;
+    text-align: center;
+}
+
+body.nodes div.details {
+    width: 29em;
+}
+
+body.nodes div.details div.input {
+    display: inline-block;
+    vertical-align: top;
+    width: 15em;
+}
+
+body.nodes div.details div.input.double input {
+    width: 34em;
+}
+
+body.nodes div.details div.input input {
+    width: 13em;
+}
+
+body.nodes div.details div.input.combo input[type="text"],
+body.nodes div.details div.input.combo select {
+    width: 13.6em;
+}
+
+body.nodes div.details div.input.combo input[type="text"] {
+    width: 11.6em;
+}
+
+body.nodes div.details div.checkboxes div.input.checkbox.inline {
+    width: 10em;
+}
+
+body.nodes div.details div.checkboxes > div.input {
+    width: 100%;
+}
+
+body.nodes div.details div.checkboxes div.input {
+    margin-bottom: 0.25em;
+}
+
+body.nodes div.details div.checkboxes div.input:last-child {
+    margin-bottom: 0.75em;
+}
+
+body.nodes div.details div.commands button#btnConfig {
+    float: left;
+    width: 9em;
+}

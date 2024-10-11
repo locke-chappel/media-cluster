@@ -1,0 +1,143 @@
+{
+	"locale" : "en_US",
+	"entries" : {
+		"messages.Application.Error.1" : {
+			"value" : "Something went wrong...",
+			"public" : true
+		},
+		"messages.Application.Error.2" : {
+			"value" : "%Field% is required",
+			"public" : true
+		},
+		"messages.Application.Error.3" : {
+			"value" : "%Field% is not valid",
+			"public" : true
+		},
+		"messages.Application.Error.404" : {
+			"value" : "Not found"
+		},
+		"messages.Application.Error.1001" : {
+			"value" : "Invalid search term"
+		},
+		"messages.Application.Error.1002" : {
+			"value" : "Invalid page size"
+		},
+		"messages.Application.Error.1003" : {
+			"value" : "Invalid page number"
+		},
+		"messages.Application.Error.2001" : {
+			"value" : "Invalid Node"
+		},
+		"messages.Application.Error.2002" : {
+			"value" : "No available nodes"
+		},
+		"messages.Application.Error.2003" : {
+			"value" : "A node with the name '%Name%' already exists.",
+			"public" : true
+		},
+		"messages.Application.Error.2004" : {
+			"value" : "NodeNotBusy"
+		},
+		"messages.Application.Error.3003" : {
+			"value" : "Cannot specify both '-an' and '-vn'. Resulting encode would contain nothing."
+		},
+		"messages.Application.Error.3004" : {
+			"value" : "InvalidJobType"
+		},
+		"messages.Application.Error.3005" : {
+			"value" : "InvalidJobStatus"
+		},
+		"messages.Application.Error.3006" : {
+			"value" : "ErrorDispatchingJob"
+		},
+		"messages.Application.Error.3007" : {
+			"value" : "UnfinishedJob"
+		},
+		"messages.Application.Error.3008" : {
+			"value" : "SourceAlradyExistsInCluster"
+		},
+		"messages.Application.Error.3009" : {
+			"value" : "ErrorWritingVideoList"
+		},
+		"messages.Application.Error.3010" : {
+			"value" : "You must select or create a profile for this job.",
+			"public" : true
+		},
+		"messages.Application.Error.3012" : {
+			"value" : "UnprocessableJob"
+		},
+		"messages.Application.Error.3013" : {
+			"value" : "MixedClusterNames"
+		},
+		"messages.Application.Error.3014" : {
+			"value" : "You must select job.",
+			"public" : true
+		},
+		"messages.Application.Error.3015" : {
+			"value" : "ErrorAbortingJob"
+		},
+		"messages.Application.Error.4001" : {
+			"value" : "Scheduler URL is not configured. Please finish configuring the scheduler before continuing"
+		},
+		"messages.Application.Error.5002" : {
+			"value" : "Passwords do no match"
+		},
+		"messages.Application.Error.6001" : {
+			"value" : "Error decrypting backup"
+		},
+		
+		"messages.Application.Warning.1" : {
+			"value" : "Video arguments include a trim filter. This may conflict the slicing logic then encoding the video."
+		},
+		
+		"messages.Application.Info.3015" : {
+			"value" : "(Completed %Count% of %Total%)"
+		},
+		"messages.Application.Info.4001" : {
+			"value" : "No Jobs Available"
+		},
+		"messages.Application.Info.4002" : {
+			"value" : "Importing new jobs. Please wait...",
+			"public" : true
+		},
+		
+		"messages.Application.Success.1" : {
+			"value" : "Changes have been saved",
+			"public" : true
+		},
+		"messages.Application.Success.2001" : {
+			"value" : "Nodes have been informed of available jobs",
+			"public" : true
+		},
+		"messages.Application.Success.2002" : {
+			"value" : "Nodes statuses have been updated",
+			"public" : true
+		},
+		"messages.Application.Success.6005" : {
+			"value" : "Back has been restored. Application will restart in a few seconds.",
+			"public" : true
+		},
+		
+		"messages.Authentication.Error.1" : {
+			"value" : "Invalid username/password"
+		},
+		"messages.Authentication.Error.2" : {
+			"value" : "Invalid token"
+		},
+		"messages.Authentication.Error.1004" : {
+			"value" : "Expired request"
+		},
+		"messages.Authentication.Error.1005" : {
+			"value" : "Invalid signature"
+		},
+		"messages.Authentication.Error.2001" : {
+			"value" : "Error automatically logging in",
+			"public" : true
+		},
+		
+		"messages.Authentication.Info.2001" : {
+			"value" : "Logging in, please wait",
+			"public" : true
+		}
+	}
+}

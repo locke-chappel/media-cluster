@@ -1,0 +1,22 @@
+/* login.css */
+body.login > div > div.header {
+    background-image: url("#context.path.resource#img/views/login-header.svgz");
+}
+
+body.login > div.body {
+    left: 0em;
+}
+
+body.login > div.body > div.content > div.login {
+    display: inline-block;
+    text-align: left;
+}
+
+body.login > div.body > div.content > div.login > div.commands {
+    text-align: center;
+}
+
+body.login > div.body > div.content > div.login > div.commands > #btnLogin {
+    margin-top: 0.5em;
+    width: 6em;
+}

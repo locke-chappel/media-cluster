@@ -1,0 +1,119 @@
+/* style.css */
+button {
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 10em;
+    border-style: none;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    padding-left: 1em;
+    padding-right: 1em;
+    min-width: 7em;
+
+    background-color: #C7C7C7;
+    /* Note: 00 vs 0, this is to fix a YUI bug (to preserve units like deg and %, use 00% instead of 0% */
+    background: linear-gradient(350deg, #808080 00%, #E5E5E5 100.00%);
+    color: #700000;
+}
+
+button:disabled {
+    color: #333333;
+    box-shadow: none;
+}
+
+button:disabled:hover {
+    color: #333333;
+    box-shadow: none;
+    cursor: default;
+}
+
+button:disabled:active {
+    color: #333333;
+    /* Note: 00 vs 0, this is to fix a YUI bug (to preserve units like deg and %, use 00% instead of 0% */
+    background: linear-gradient(350deg, #808080 00%, #E5E5E5 100.00%);
+}
+
+button:focus {
+    outline: none;
+}
+
+button:hover {
+    box-shadow: 0em 0em 0.2em 0.15em #CC0000;
+}
+
+button:active {
+    background-color: #C7C7C7;
+    /* Note: 00 vs 0, this is to fix a YUI bug (to preserve units like deg and %, use 00% instead of 0% */
+    background: linear-gradient(350deg, #E5E5E5 00%, #808080 100.00%);
+    
+    box-shadow: 0em 0em 0.2em 0.15em #CC0000;
+}
+
+body > div > div.header > div.menuIcon {
+    float: left;
+    cursor: pointer;
+    font-size: 125%;
+    user-select: none;
+    margin-left: 0.25em;
+    margin-top: 0.5em;
+}
+
+body > div > div.header > div.headerMenu {
+    float: right;
+    margin-right: 1em;
+    margin-top: 1em;
+    user-select: none;
+}
+
+body > div > div.header > div.spinner {
+    float: right;
+    font-size: 125%;
+    margin-top: 0.75em;
+    margin-right: 0.5em;
+}
+
+body > div > div.header:after,
+body > div.body,
+body > div.footer:before {
+    left: 0em;
+}
+
+div.input > span.lbl {
+    width: 7em;
+}
+
+div.input > input[type="text"], div.input > input[type="password"], div.input > textarea {
+    width: 18em;
+}
+
+body > div.body > div.content {
+    text-align: center;
+}
+
+div.sidemenu > div.item.fixed-last > div > span > span.signout {
+    display: inline-block;
+    margin-right: 0.5em;
+}
+
+body > div > div.header > div.headerMenu > span#btnSignOutHeader {
+    display: inline-block;
+    margin-left: 0.25em;
+    cursor: pointer;
+}
+
+div.commands {
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    text-align: right;
+}
+
+div.commands button {
+    width: 7em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+div.banner > div.message > div.text > span.refresh {
+    cursor: pointer;
+    text-decoration: underline;
+}

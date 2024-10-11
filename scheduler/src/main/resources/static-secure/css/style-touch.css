@@ -1,0 +1,19 @@
+/* style-touch.css */
+@media (pointer: coarse) {
+    body > div > div.header {
+        background-size: auto;
+    }
+    
+    div.commands button {
+        width: 6em;
+        min-width: 6em;
+    }
+    
+    body > div > div.header > div.headerMenu {
+        display: none;
+    }
+    
+    body div.body div.content div.cell {
+        width: 22em;
+    }
+}

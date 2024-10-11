@@ -1,0 +1,28 @@
+/* input.css */
+div.input.combo {
+    position: relative;
+    margin-bottom: 0.75em;
+    min-height: 3em;
+}
+
+/*div.input.combo input[type="text"],*/
+div.input.combo select {
+    position: absolute;
+    top: 1.8em;
+    left: 0em;
+    width: 20em;
+    height: 1.78em;
+}
+
+div.input.combo input[type="text"] {
+    position: absolute;
+    width: 18em;
+    z-index: 100;
+    border-right-style: none;
+    clip-path: inset(0 0.1em 0 0);
+    z-index: 100;
+}
+
+div.input.combo select {
+    z-index: 99;
+}

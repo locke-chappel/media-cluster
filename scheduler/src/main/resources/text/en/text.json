@@ -1,0 +1,170 @@
+{
+	"locale" : "en_US",
+	"entries" : {
+		"application.name" : {
+			"value" : "Media Cluster Scheduler"
+		},
+		"application.title" : {
+			"value" : "#application.name#"
+		},
+		
+		"application.default.cluster" : {
+			"value" : "Default",
+			"public" : "true"
+		},
+		"application.default.scheduler.name" : {
+			"value" : "Scheduler",
+			"public" : "true"
+		},
+		"application.profiles.custom" : {
+			"value" : "Custom",
+			"public" : true
+		},
+		
+		"application.header.user" : {
+			"value" : "Welcome %DisplayName%"
+		},
+		"application.header.signout" : {
+			"value" : "Sign Out"
+		},
+		
+		"application.jobTypes.Scan" : {
+			"value" : "Scan"
+		},
+		"application.jobTypes.Audio" : {
+			"value" : "Audio"
+		},
+		"application.jobTypes.Video" : {
+			"value" : "Video"
+		},
+		"application.jobTypes.Merge" : {
+			"value" : "Merge"
+		},
+		"application.jobTypes.Mux" : {
+			"value" : "Mux"
+		},
+		
+		"application.menu.jobs" : {
+			"value" : "Jobs"
+		},
+		"application.menu.jobs.import" : {
+			"value" : "Import New Jobs"
+		},
+		"application.menu.nodes" : {
+			"value" : "Nodes"
+		},
+		"application.menu.nodes.inform" : {
+			"value" : "Send Jobs"
+		},
+		"application.menu.nodes.new" : {
+			"value" : "New Node"
+		},
+		"application.menu.nodes.refresh" : {
+			"value" : "Refresh Node Statuses"
+		},
+		"application.menu.settings" : {
+			"value" : "Settings"
+		},
+		"application.menu.signout" : {
+			"value" : "Sign Out"
+		},
+		
+		"application.status.Available" : {
+			"value" : "Available",
+			"public" : "true"
+		},
+		"application.status.Complete" : {
+			"value" : "Complete",
+			"public" : "true"
+		},
+		"application.status.Finished" : {
+			"value" : "Finished",
+			"public" : "true"
+		},
+		"application.status.InProgress" : {
+			"value" : "Processing",
+			"public" : "true"
+		},
+		"application.status.Pending" : {
+			"value" : "Pending",
+			"public" : "true"
+		},
+		
+		"global.buttons.cancel" : {
+			"value" : "Cancel",
+			"public" : true
+		},
+		"global.buttons.close" : {
+			"value" : "Close",
+			"public" : true
+		},
+		"global.buttons.delete" : {
+			"value" : "Delete",
+			"public" : true
+		},
+		"global.buttons.ok" : {
+			"value" : "OK",
+			"public" : true
+		},
+		"global.buttons.save" : {
+			"value" : "Save",
+			"public" : true
+		},
+		"global.buttons.start" : {
+			"value" : "Start",
+			"public" : true
+		},
+		"global.buttons.yes" : {
+			"value" : "Yes",
+			"public" : true
+		},
+		
+		"global.defaults.select" : {
+			"value" : "- Select an Option -",
+			"public" : true
+		},
+		
+		"global.input.label.required" : {
+			"value" : "*"
+		},
+		"global.input.label.suffix" : {
+			"value" : ":"
+		},
+		
+		"global.modal.confirm.header" : {
+			"value" : "Are you sure?",
+			"public" : true
+		},
+		
+		"global.modal.dirty.header" : {
+			"value" : "#global.modal.confirm.header#",
+			"public" : true
+		},		
+		"global.modal.dirty.message" : {
+			"value" : "Continue and lose unsaved changes?",
+			"public" : true
+		},
+		
+		"global.refresh.warning.one" : {
+		    "value" : "Your session will expire in",
+		    "public" : true
+		},
+		"global.refresh.warning.two" : {
+		    "value" : ". Click",
+		    "public" : true
+		},
+		"global.refresh.warning.refresh" : {
+		    "value" : "here",
+		    "public" : true
+		},
+		"global.refresh.warning.three" : {
+		    "value" : "to extend your session.",
+		    "public" : true
+		},
+		
+		"global.search.noResults" : {
+		    "value" : "No Results Found",
+			"public" : true
+		}
+	}
+}

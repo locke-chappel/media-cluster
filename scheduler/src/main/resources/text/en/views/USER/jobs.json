@@ -1,0 +1,64 @@
+{
+	"locale" : "en_US",
+	"entries" : {
+		"jobs.details.header" : {
+			"value" : "Job Details"
+		},
+		"jobs.details.source" : {
+			"value" : "Source"
+		},
+		"jobs.details.source.none" : {
+			"value" : "- Select a Job -",
+			"public" : "true"
+		},
+		"jobs.details.status" : {
+			"value" : "Status"
+		},
+		"jobs.details.profile" : {
+			"value" : "Profile"
+		},
+		"jobs.details.profile.default" : {
+			"value" : "- Select a Profile -",
+			"public" : "true"
+		},
+	    "jobs.details.cluster" : {
+			"value" : "Cluster"
+		},
+		
+		"jobs.search.header" : {
+			"value" : "Jobs"
+		},
+		"jobs.search.terms.text" : {
+			"value" : "Search"
+		},
+		"jobs.search.columns.index" : {
+			"value" : "Order",
+			"public" : true
+		},
+		"jobs.search.columns.source" : {
+			"value" : "Source",
+			"public" : true
+		},
+		"jobs.search.columns.status" : {
+			"value" : "Status",
+			"public" : true
+		},
+		"jobs.search.columns.delete.tooltip" : {
+			"value" : "Delete this Job",
+			"public" : true
+		},
+		"jobs.search.columns.source.tooltip" : {
+			"value" : "View/Edit Job",
+			"public" : true
+		},
+		
+		"jobs.job.delete.title" : {
+			"value" : "#global.modal.confirm.header#",
+			"public" : true
+		},
+		"jobs.job.delete.message" : {
+			"value" : "Deleting the '%Source%' job will permanently remove it and all dependent jobs (including any completed ones).",
+			"public" : true
+		}
+	}
+}
