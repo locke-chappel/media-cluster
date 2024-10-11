@@ -1,6 +1,6 @@
 services:
   media-cluster-scheduler:
-    image: scheudler:latest
+    image: scheduler
     container_name: media-cluster-scheduler
     restart: unless-stopped
     user: "9001:9001"

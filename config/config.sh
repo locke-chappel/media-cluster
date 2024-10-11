@@ -1,7 +1,7 @@
 #!/bin/sh
 
 JAR_DATA="JAR_BASE64_DATA"
-TEMP_FILE=$(mktemp /tmp/config.XXXXXXXXXX.jar)
+TEMP_FILE=$(mktemp /tmp/config.XXXXXX)
 
 # Make sure we always clean up the temp file
 trap "rm -f $TEMP_FILE" 0 2 3 15

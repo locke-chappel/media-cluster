@@ -93,15 +93,29 @@ public class Application {
         lines = prompt.readList("Enter User JWT Secret IDs, comma delimited: ", "user-sessions-1");
         data.put("UserJwtSecrets", lines);
 
+        String cwd = Application.normalizeFilePath(System.getProperty("user.dir"));
+        if (!cwd.endsWith("/")) {
+            cwd = cwd + "/";
+        }
+
         keyPath = filePrompt.read("Enter key file path: ", "key");
         keyPath = Application.normalizeFilePath(keyPath);
         if (!Application.abort) {
-            line = keyPath.substring(0, keyPath.lastIndexOf("/")) + "/config";
+            if (keyPath.contains("/")) {
+                line = keyPath.substring(0, keyPath.lastIndexOf("/")) + "/config";
+            } else {
+                line = "config";
+                keyPath = cwd + keyPath;
+            }
             configPath = filePrompt.read("Enter encrypted config file path: ", line);
             configPath = Application.normalizeFilePath(configPath);
             if (!Application.abort) {
+                if (!configPath.contains("/")) {
+                    configPath = cwd + configPath;
+                }
+
                 new File(keyPath.substring(0, keyPath.lastIndexOf("/"))).mkdirs();
-                new File(keyPath.substring(0, configPath.lastIndexOf("/"))).mkdirs();
+                new File(configPath.substring(0, configPath.lastIndexOf("/"))).mkdirs();
 
                 String json = Application.toJson(data);
 
@@ -156,18 +170,27 @@ public class Application {
     /**
      * Attempts to detect Windows file paths and normalizes them to *nix paths.
      */
+    private static String normalizeFilePath(String path) {
+        return normalizeFilePath(path, false);
+    }
+
     /*
      * Exposed for testing
      */
-    static String normalizeFilePath(String path) {
+    static String normalizeFilePath(String path, boolean includeTrailingSlash) {
         if (path == null) {
-            return null;
+            return includeTrailingSlash ? "/" : null;
         }
 
         String p = path.trim();
         if (Application.getFileSeparator().equals("\\") && Application.isWindowsFilePath(p)) {
             p = p.replace("\\", "/");
         }
+
+        if (includeTrailingSlash && !p.endsWith("/")) {
+            p = p + "/";
+        }
+
         return p;
     }
 

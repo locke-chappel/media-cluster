@@ -29,10 +29,11 @@ public class ApplicationTest extends AbstractMockTest {
 
     private String getTempDir() {
         if (ApplicationTest.tempDir == null) {
-            ApplicationTest.tempDir = System.getProperty("java.io.tmpdir").replace("\\", "/");
-            if (!ApplicationTest.tempDir.endsWith("/")) {
-                ApplicationTest.tempDir += "/";
+            String tempDir = System.getProperty("java.io.tmpdir").replace("\\", "/");
+            if (!tempDir.endsWith("/")) {
+                tempDir += "/";
             }
+            ApplicationTest.tempDir = tempDir + "mc.config.test/";
         }
         return ApplicationTest.tempDir;
     }
@@ -47,6 +48,8 @@ public class ApplicationTest extends AbstractMockTest {
 
     @BeforeEach
     public void setup() {
+        new File(getTempDir()).mkdirs();
+
         this.systemIn = System.in;
         this.setField("stdin", null, UserPropmpt.class);
         this.setField("abort", false, Application.class);
@@ -60,11 +63,13 @@ public class ApplicationTest extends AbstractMockTest {
         this.setField("abort", false, Application.class);
         this.setField("console", null, Application.class);
 
-        File f = new File(this.getKeyPath());
-        f.delete();
+        new File(this.getKeyPath()).delete();
 
-        f = new File(this.getConfigPath());
-        f.delete();
+        new File(this.getConfigPath()).delete();
+
+        new File(this.getTempDir() + "key").delete();
+        new File(this.getTempDir() + "config").delete();
+        new File(this.getTempDir()).delete();
     }
 
     protected void writeStdIn(String data) {
@@ -82,6 +87,56 @@ public class ApplicationTest extends AbstractMockTest {
         Assertions.assertEquals(1024, key.length());
 
         File config = new File(this.getConfigPath());
+        /*
+         * Config size is variable due to intentional variations in the encryption
+         * algorithm
+         */
+        Assertions.assertTrue(config.exists());
+        Assertions.assertTrue(config.length() > 256);
+        Assertions.assertTrue(config.length() < 512);
+    }
+
+    @Test
+    public void test_main_internalAuth_noPaths() {
+        System.setProperty("user.dir", new File(this.getTempDir()).getAbsolutePath());
+        String cwd = System.getProperty("user.dir");
+        Assertions.assertNotNull(cwd);
+        Assertions.assertFalse(cwd.endsWith("/"));
+
+        this.writeStdIn("\n\n\npass\nchangeit\n\n\n\n");
+
+        Application.main(null);
+
+        File key = new File(this.getTempDir() + "key");
+        Assertions.assertTrue(key.exists());
+        Assertions.assertEquals(1024, key.length());
+
+        File config = new File(this.getTempDir() + "config");
+        /*
+         * Config size is variable due to intentional variations in the encryption
+         * algorithm
+         */
+        Assertions.assertTrue(config.exists());
+        Assertions.assertTrue(config.length() > 256);
+        Assertions.assertTrue(config.length() < 512);
+    }
+
+    @Test
+    public void test_main_internalAuth_noPaths_cwdTailingSlash() {
+        System.setProperty("user.dir", new File(this.getTempDir()).getAbsolutePath() + "/");
+        String cwd = System.getProperty("user.dir");
+        Assertions.assertNotNull(cwd);
+        Assertions.assertTrue(cwd.endsWith("/"));
+
+        this.writeStdIn("\n\n\npass\nchangeit\n\n\n\n");
+
+        Application.main(null);
+
+        File key = new File(this.getTempDir() + "key");
+        Assertions.assertTrue(key.exists());
+        Assertions.assertEquals(1024, key.length());
+
+        File config = new File(this.getTempDir() + "config");
         /*
          * Config size is variable due to intentional variations in the encryption
          * algorithm
@@ -290,59 +345,103 @@ public class ApplicationTest extends AbstractMockTest {
     public void test_normalizeFilePath_windows() {
         this.setField("pathSeparator", "\\", Application.class);
 
-        String result = Application.normalizeFilePath(null);
+        String result = Application.normalizeFilePath(null, false);
         Assertions.assertNull(result);
 
-        result = Application.normalizeFilePath("");
+        result = Application.normalizeFilePath(null, true);
+        Assertions.assertEquals("/", result);
+
+        result = Application.normalizeFilePath("", false);
         Assertions.assertEquals("", result);
 
-        result = Application.normalizeFilePath(" \t \r \n \t ");
+        result = Application.normalizeFilePath("", true);
+        Assertions.assertEquals("/", result);
+
+        result = Application.normalizeFilePath(" \t \r \n \t ", false);
         Assertions.assertEquals("", result);
 
-        result = Application.normalizeFilePath("  C:\\My Path\\sub  ");
+        result = Application.normalizeFilePath("  C:\\My Path\\sub  ", false);
         Assertions.assertEquals("C:/My Path/sub", result);
 
-        result = Application.normalizeFilePath("~/my path/sub ");
+        result = Application.normalizeFilePath("~/my path/sub ", false);
         Assertions.assertEquals("~/my path/sub", result);
 
-        result = Application.normalizeFilePath("~/my\\ path/sub ");
+        result = Application.normalizeFilePath("~/my\\ path/sub ", false);
         Assertions.assertEquals("~/my\\ path/sub", result);
+
+        result = Application.normalizeFilePath("~/my\\ path/sub ", true);
+        Assertions.assertEquals("~/my\\ path/sub/", result);
     }
 
     /*
-     * Known scenarios where the path is altered but shouldn't be
+     * Known scenarios where the path is altered but shouldn't be or vice versa
      */
     @Test
     public void test_normalizeFilePath_windows_knownErrorCases() {
         this.setField("pathSeparator", "\\", Application.class);
 
-        String result = Application.normalizeFilePath("~/my\\:path/sub ");
+        /*
+         * Should be ~/my\:path/sub
+         */
+        String result = Application.normalizeFilePath("~/my\\:path/sub ", false);
         Assertions.assertEquals("~/my/:path/sub", result);
+
+        /*
+         * Unclear - this might be / or \ depending on interpretation. Just \ is
+         * technically not a valid Windows path which is why it currently does not get
+         * modified
+         */
+        result = Application.normalizeFilePath("\\", false);
+        Assertions.assertEquals("\\", result);
+
+        /*
+         * Unclear - this might be / or \/ depending on interpretation. Just \ is
+         * technically not a valid Windows path which is why it currently does not get
+         * modified to / which then means it's missing the trailing / so that gets
+         * appended.
+         */
+        result = Application.normalizeFilePath("\\", true);
+        Assertions.assertEquals("\\/", result);
     }
 
     @Test
     public void test_normalizeFilePath_nix() {
         this.setField("pathSeparator", "/", Application.class);
 
-        String result = Application.normalizeFilePath(null);
+        String result = Application.normalizeFilePath(null, false);
         Assertions.assertNull(result);
 
-        result = Application.normalizeFilePath("");
+        result = Application.normalizeFilePath(null, true);
+        Assertions.assertEquals("/", result);
+
+        result = Application.normalizeFilePath("", false);
         Assertions.assertEquals("", result);
 
-        result = Application.normalizeFilePath(" \t \r \n \t ");
+        result = Application.normalizeFilePath("/", false);
+        Assertions.assertEquals("/", result);
+
+        result = Application.normalizeFilePath("", true);
+        Assertions.assertEquals("/", result);
+
+        result = Application.normalizeFilePath("/", true);
+        Assertions.assertEquals("/", result);
+
+        result = Application.normalizeFilePath(" \t \r \n \t ", false);
         Assertions.assertEquals("", result);
 
-        result = Application.normalizeFilePath("  C:\\My Path\\sub  ");
+        result = Application.normalizeFilePath("  C:\\My Path\\sub  ", false);
         Assertions.assertEquals("C:\\My Path\\sub", result);
 
-        result = Application.normalizeFilePath("~/my path/sub ");
+        result = Application.normalizeFilePath("~/my path/sub ", false);
         Assertions.assertEquals("~/my path/sub", result);
 
-        result = Application.normalizeFilePath("~/my\\:path/sub ");
+        result = Application.normalizeFilePath("~/my\\:path/sub ", false);
         Assertions.assertEquals("~/my\\:path/sub", result);
 
-        result = Application.normalizeFilePath("~/my\\ path/sub ");
+        result = Application.normalizeFilePath("~/my\\ path/sub ", false);
         Assertions.assertEquals("~/my\\ path/sub", result);
+
+        result = Application.normalizeFilePath("~/my\\ path/sub ", true);
+        Assertions.assertEquals("~/my\\ path/sub/", result);
     }
 }

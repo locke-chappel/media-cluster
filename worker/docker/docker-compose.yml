@@ -1,6 +1,6 @@
 services:
   media-cluster-worker:
-    image: worker:latest
+    image: worker
     container_name: media-cluster-worker
     restart: unless-stopped
     user: "9001:9001"
