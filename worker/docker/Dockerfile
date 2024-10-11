@@ -7,9 +7,9 @@ USER root
 
 RUN apk --no-cache add \
       gpg \
-	  gpg-agent && \
-    wget -o /app.jar "https://github.com/locke-chappel/media-cluster/releases/download/${APP_VERSION}/worker-${APP_VERSION}.jar" && \
-    wget -o /app.jar.asc "https://github.com/locke-chappel/media-cluster/releases/download/${APP_VERSION}/worker-${APP_VERSION}.jar.asc" && \
+      gpg-agent && \
+    wget -O /app.jar "https://github.com/locke-chappel/media-cluster/releases/download/${APP_VERSION}/worker-${APP_VERSION}.jar" && \
+    wget -O /app.jar.asc "https://github.com/locke-chappel/media-cluster/releases/download/${APP_VERSION}/worker-${APP_VERSION}.jar.asc" && \
     gpg --keyserver keyserver.ubuntu.com --recv-keys $GPG_ID && \
     gpg --verify /app.jar.asc /app.jar && \
     if [[ $? != 0 ]]; then \
