@@ -42,6 +42,7 @@ public class Messages extends JsonMessage {
         InvalidField(io.github.lc.oss.commons.api.identity.Messages.Application.InvalidField),
         NotFound(io.github.lc.oss.commons.api.identity.Messages.Application.NotFound),
         InvalidOperation(Severities.Error, 100),
+        InvalidFilePath(Severities.Error, 101),
 
         /*
          * General

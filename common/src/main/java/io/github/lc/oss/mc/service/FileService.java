@@ -1,6 +1,8 @@
 package io.github.lc.oss.mc.service;
 
 import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -32,8 +34,16 @@ public class FileService extends AbstractService {
         String destDir = this.getSchedulerDir("new");
         destDir = this.pathNormalizer.dirOsAware(destDir);
 
-        File src = new File(srcDir + file);
-        File dest = new File(destDir + file);
+        String srcFile = srcDir + file;
+        String destFile = destDir + file;
+
+        if (!this.validatePath(srcFile, srcDir)) {
+            this.addMessage(response, Messages.Application.InvalidFilePath);
+            return response;
+        }
+
+        File src = new File(srcFile);
+        File dest = new File(destFile);
 
         if (!src.exists()) {
             this.addMessage(response, Messages.Application.NotFound);
@@ -53,8 +63,16 @@ public class FileService extends AbstractService {
 
         String destDir = this.getProcessingDir(clusterName);
 
-        File src = new File(srcDir + file);
-        File dest = new File(destDir + file);
+        String srcFile = srcDir + file;
+        String destFile = destDir + file;
+
+        if (!this.validatePath(srcFile, srcDir)) {
+            this.addMessage(response, Messages.Application.InvalidFilePath);
+            return response;
+        }
+
+        File src = new File(srcFile);
+        File dest = new File(destFile);
 
         if (!src.exists()) {
             this.addMessage(response, Messages.Application.NotFound);
@@ -78,14 +96,21 @@ public class FileService extends AbstractService {
         String destDir = this.pathNormalizer.dirOsAware(this.getSchedulerDir("complete"));
         String file = this.getFileNameWithoutExtension(source) + "." + ext;
 
-        File src = new File(srcDir + file);
+        String srcFile = srcDir + file;
+        String destFile = destDir + file;
 
+        if (!this.validatePath(srcFile, srcDir)) {
+            this.addMessage(response, Messages.Application.InvalidFilePath);
+            return response;
+        }
+
+        File src = new File(srcFile);
         if (!src.exists()) {
             this.addMessage(response, Messages.Application.NotFound);
             return response;
         }
 
-        File dest = new File(destDir + file);
+        File dest = new File(destFile);
         src.renameTo(dest);
 
         return response;
@@ -172,6 +197,13 @@ public class FileService extends AbstractService {
 
     private List<String> listFiles(String prefix, String dirPath) {
         return this.toPaths(prefix, new File(dirPath).listFiles());
+    }
+
+    private boolean validatePath(String path, String rootDir) {
+        Path p = Paths.get(path).normalize().toAbsolutePath();
+        Path root = Paths.get(rootDir).normalize().toAbsolutePath();
+
+        return p.startsWith(root);
     }
 
     private List<String> toPaths(String prefix, File... files) {
