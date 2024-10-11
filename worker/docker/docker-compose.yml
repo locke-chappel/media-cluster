@@ -19,7 +19,9 @@ services:
       XMX: 256M
     network_mode: bridge
     volumes:
+      # Application settings and logs
       - "./worker/home/user/app-data:/home/user/app-data"
+      # Media files to process (Only needs access to it's cluster's files)
       - "./worker/media:/home/user/media"
       - type: tmpfs
         target: /tmp

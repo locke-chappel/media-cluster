@@ -17,11 +17,16 @@ services:
     environment:
       TZ: "America/Los_Angeles"
       XMX: 256M
+      # Only used on the first run
+      #application.firstrun.username: ${some-env-var-or-clear-text-value}
+      #application.firstrun.password: ${some-env-var-or-clear-text-value}
     ports:
       - "8080:8080/tcp"
     network_mode: bridge
     volumes:
+      # Application settings and logs
       - "./scheduler/home/user/app-data:/home/user/app-data"
+      # Media files to process (needs access to all cluster's files)
       - "./scheduler/media:/home/user/media"
       - type: tmpfs
         target: /tmp

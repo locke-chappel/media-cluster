@@ -74,6 +74,7 @@ public class JobCreatorThreadTest extends AbstractMockTest {
          * This test requires a stopped thread
          */
         this.thread.stop();
+        this.waitUntil(() -> !this.thread.isRunning(), 5000);
         BlockingQueue<List<Job>> toCreate = this.getField("toCreate", this.thread);
         toCreate.clear();
 
@@ -98,6 +99,7 @@ public class JobCreatorThreadTest extends AbstractMockTest {
          * This test requires a stopped thread
          */
         this.thread.stop();
+        this.waitUntil(() -> !this.thread.isRunning(), 5000);
         BlockingQueue<List<Job>> toCreate = this.getField("toCreate", this.thread);
         toCreate.clear();
 
@@ -225,6 +227,7 @@ public class JobCreatorThreadTest extends AbstractMockTest {
          * This test requires a stopped thread
          */
         this.thread.stop();
+        this.waitUntil(() -> !this.thread.isRunning(), 5000);
         BlockingQueue<List<Job>> toCreate = this.getField("toCreate", this.thread);
         toCreate.clear();
         this.thread.setShouldRun(true);
