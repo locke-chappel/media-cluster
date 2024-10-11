@@ -73,7 +73,20 @@ public class FirstRunService extends AbstractRuntimeService {
     }
 
     private boolean hasUser() {
-        return this.userRepo.count() > 0;
+        try {
+            return this.userRepo.count() > 0;
+        } catch (Throwable ex) {
+            if (StringUtils.containsIgnoreCase(ex.getMessage(), "this database is empty")) {
+                /*
+                 * This happens on a first run where there is no database at all, so make sure
+                 * we create one.
+                 */
+                System.setProperty("spring.jpa.hibernate.ddl-auto", "update");
+                return false;
+            }
+
+            throw ex;
+        }
     }
 
     private boolean hasKeyStore() {
