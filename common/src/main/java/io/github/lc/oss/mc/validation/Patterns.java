@@ -11,7 +11,7 @@ public class Patterns {
     public static final Pattern FilePath = Pattern.compile("^(?!.*\\.\\.).{1," + Constants.Lengths.FILE_PATH + "}$");
     public static final Pattern FileExt = Pattern.compile("^[a-zA-Z0-9\\-_]{1,16}$");
     public static final Pattern Name = Pattern
-            .compile("^(?!#)[a-zA-Z0-9\\-_\\.#@=+!~ ()\\[\\]{}:;/\\\\%&|\"']{1," + Constants.Lengths.NAME + "}$");
+            .compile("^(?!#)[a-zA-Z0-9\\-_#@=+!~()\\[\\]{}:;&]{1," + Constants.Lengths.NAME + "}$");
     public static final Pattern SearchTerm = Pattern.compile("^.{0," + Constants.Lengths.Search.MAX_TERM_LENGTH + "}$");
     public static final Pattern Username = Pattern
             .compile("^[a-zA-Z0-9+=.,&~|_!@#$<>(){}\\-\\[\\]]{1," + Constants.Lengths.NAME + "}$");

@@ -71,6 +71,11 @@ public class FileService extends AbstractService {
             return response;
         }
 
+        if (!this.validatePath(destFile, root)) {
+            this.addMessage(response, Messages.Application.InvalidFilePath);
+            return response;
+        }
+
         File src = new File(srcFile);
         File dest = new File(destFile);
 
@@ -203,7 +208,7 @@ public class FileService extends AbstractService {
         Path p = Paths.get(path).normalize().toAbsolutePath();
         Path root = Paths.get(rootDir).normalize().toAbsolutePath();
 
-        return p.startsWith(root);
+        return p.startsWith(root + getFileSeparator());
     }
 
     private List<String> toPaths(String prefix, File... files) {

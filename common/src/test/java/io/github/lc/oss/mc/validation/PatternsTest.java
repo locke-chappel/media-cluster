@@ -71,9 +71,16 @@ public class PatternsTest extends AbstractMockTest {
         Assertions.assertFalse(Patterns.Name.matcher("").matches());
         Assertions.assertFalse(Patterns.Name.matcher("#").matches());
         Assertions.assertFalse(Patterns.Name.matcher("?").matches());
+        Assertions.assertFalse(Patterns.Name.matcher(".").matches());
+        Assertions.assertFalse(Patterns.Name.matcher("..").matches());
+        Assertions.assertFalse(Patterns.Name.matcher("/").matches());
+        Assertions.assertFalse(Patterns.Name.matcher("\\").matches());
+        Assertions.assertFalse(Patterns.Name.matcher("/./a/../").matches());
+        Assertions.assertFalse(Patterns.Name.matcher("|").matches());
+        Assertions.assertFalse(Patterns.Name.matcher("'").matches());
+        Assertions.assertFalse(Patterns.Name.matcher("\"").matches());
         Assertions.assertTrue(Patterns.Name
-                .matcher("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZZ0123456789-_.#@=+!~ ()[]{}:;/\\%&|\"'")
-                .matches());
+                .matcher("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZZ0123456789-_#@=+!~()[]{}:;&").matches());
 
         String s = this.pad("ABCDEF1234567890", 8);
         Assertions.assertTrue(Patterns.Name.matcher(s).matches());

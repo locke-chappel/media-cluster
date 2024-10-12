@@ -303,6 +303,28 @@ public class FileServiceTest extends AbstractMockTest {
     }
 
     @Test
+    public void test_moveToProcessing_illegalDest() {
+        this.setField("root", this.getTempRoot(), this.service);
+
+        File newDir = new File(this.getTempRoot() + "new");
+        newDir.mkdirs();
+        File processingDir = new File(this.getTempRoot() + "clusters/junit/processing");
+        processingDir.mkdirs();
+
+        Mockito.doAnswer(new Answer<String>() {
+            @Override
+            public String answer(InvocationOnMock invocation) throws Throwable {
+                return invocation.getArgument(0) + "/";
+            }
+        }).when(this.pathNormalizer).dirOsAware(ArgumentMatchers.notNull());
+
+        ServiceResponse<?> result = this.service.moveToProcessing("file.avi", "../../../../../../../../junit");
+        Assertions.assertNotNull(result);
+        Assertions.assertTrue(result.hasMessages(Messages.Application.InvalidFilePath));
+        Assertions.assertNull(result.getEntity());
+    }
+
+    @Test
     public void test_moveToNew() {
         this.setField("root", this.getTempRoot(), this.service);
 
