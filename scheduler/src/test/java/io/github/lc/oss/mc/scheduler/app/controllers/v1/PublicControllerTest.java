@@ -66,7 +66,7 @@ public class PublicControllerTest extends AbstractMockTest {
                 String value = invocation.getArgument(1);
                 Assertions.assertEquals("default-src 'none'; script-src 'self'; " + //
                         "connect-src 'self' https://identity.local" + "; img-src 'self'; style-src 'self'; " + //
-                        "font-src 'self'; frame-ancestors 'none';", value);
+                        "font-src 'self'; frame-ancestors 'none'; form-action 'none';", value);
                 return null;
             }
         }).when(response).setHeader(ArgumentMatchers.eq("Content-Security-Policy"), ArgumentMatchers.notNull());

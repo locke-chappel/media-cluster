@@ -22,7 +22,6 @@ import io.github.lc.oss.commons.serialization.Primitive;
 import io.github.lc.oss.commons.serialization.Response;
 import io.github.lc.oss.commons.web.tokens.CsrfTokenManager;
 import io.github.lc.oss.mc.api.Messages;
-import io.github.lc.oss.mc.security.Authorities;
 import io.github.lc.oss.mc.scheduler.app.entity.User;
 import io.github.lc.oss.mc.scheduler.app.model.Credentials;
 import io.github.lc.oss.mc.scheduler.app.repository.UserRepository;
@@ -30,6 +29,7 @@ import io.github.lc.oss.mc.scheduler.app.service.IdentityService;
 import io.github.lc.oss.mc.scheduler.app.service.PasswordHasher;
 import io.github.lc.oss.mc.scheduler.app.validation.CredentialsValidator;
 import io.github.lc.oss.mc.scheduler.security.JwtManager;
+import io.github.lc.oss.mc.security.Authorities;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
@@ -58,7 +58,7 @@ public class PublicController extends AbstractController {
             response.setHeader("Content-Security-Policy", "default-src 'none'; script-src 'self'; " + //
                     "connect-src 'self' " + this.identityService.getIdentityUrl()
                     + "; img-src 'self'; style-src 'self'; " + //
-                    "font-src 'self'; frame-ancestors 'none';");
+                    "font-src 'self'; frame-ancestors 'none'; form-action 'none';");
         }
         return new ModelAndView("views/login");
     }

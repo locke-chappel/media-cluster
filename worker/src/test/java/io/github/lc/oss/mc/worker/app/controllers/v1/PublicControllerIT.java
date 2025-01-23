@@ -23,7 +23,7 @@ public class PublicControllerIT extends AbstractRestTest {
         HttpHeaders headers = result.getHeaders();
         this.assertHeader("Content-Security-Policy", "default-src 'none'; script-src 'self'; " + //
                 "connect-src 'self'; img-src 'self'; style-src 'self'; font-src 'self'; " + //
-                "frame-ancestors 'none';", headers);
+                "frame-ancestors 'none'; form-action 'none';", headers);
         this.assertHeader("X-Content-Type-Options", "nosniff", headers);
         this.assertHeader("X-Frame-Options", "deny", headers);
         this.assertHeader("X-XSS-Protection", "0", headers);
