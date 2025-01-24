@@ -299,12 +299,7 @@ public class JwtManager extends JwtService {
                 String newJwt = this.identityService.refreshSession(jwt);
                 token = this.validate(newJwt);
                 if (token == null) {
-                    Arrays.stream(request.getCookies()). //
-                            filter(c -> StringUtils.equals(c.getName(), this.cookieName)). //
-                            forEach(c -> {
-                                c.setMaxAge(0);
-                                response.addCookie(c);
-                            });
+                    CookieUtil.deleteCookie(request, response, this.cookieName);
                     return null;
                 }
                 this.setCookie(response, newJwt, token.getExpirationMillis());

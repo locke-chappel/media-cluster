@@ -5,10 +5,10 @@ import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Properties;
+import java.util.Set;
 
 import javax.sql.DataSource;
 
-import org.apache.commons.lang3.StringUtils;
 import org.h2.tools.Server;
 import org.quartz.CronScheduleBuilder;
 import org.quartz.Job;
@@ -62,6 +62,7 @@ import io.github.lc.oss.commons.web.services.HttpService;
 import io.github.lc.oss.commons.web.services.JsonService;
 import io.github.lc.oss.commons.web.services.ThemeService;
 import io.github.lc.oss.commons.web.util.ContextUtil;
+import io.github.lc.oss.commons.web.util.CookieUtil;
 import io.github.lc.oss.mc.scheduler.app.filters.CsrfFilter;
 import io.github.lc.oss.mc.scheduler.app.filters.JwtFilter;
 import io.github.lc.oss.mc.scheduler.app.jobs.CsrfTokenSaltJob;
@@ -301,15 +302,7 @@ public class ApplicationConfig extends DefaultAppConfiguration {
                     AuthenticationException authException) throws IOException, ServletException {
                 SecurityContextHolder.clearContext();
                 this.jwtManager.invalidate(request, response);
-                if (request.getCookies() != null) {
-                    Arrays.stream(request.getCookies()). //
-                            filter(c -> !StringUtils.equals(c.getName(), this.themeService.getCookieId())). //
-                            forEach(c -> {
-                                c.setMaxAge(0);
-                                response.addCookie(c);
-                            });
-                }
-
+                CookieUtil.deleteAllCookies(request, response, Set.of(this.themeService.getCookieId()));
                 response.sendRedirect(ContextUtil.getAbsoluteUrl("/login", request.getServletContext()));
             }
         };
