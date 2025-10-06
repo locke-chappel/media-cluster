@@ -3,16 +3,17 @@ package io.github.lc.oss.mc.scheduler.app.validation;
 import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import io.github.lc.oss.commons.l10n.Variable;
 import io.github.lc.oss.commons.serialization.Message;
 import io.github.lc.oss.mc.api.Messages;
-import io.github.lc.oss.mc.validation.Patterns;
 import io.github.lc.oss.mc.scheduler.app.model.Node;
 import io.github.lc.oss.mc.scheduler.app.model.NodeTypes;
 import io.github.lc.oss.mc.scheduler.app.repository.NodeRepository;
+import io.github.lc.oss.mc.validation.Patterns;
 
 @Component
 public class NodeValidator extends AbstractValidator<Node> {
@@ -37,7 +38,7 @@ public class NodeValidator extends AbstractValidator<Node> {
 
         /* Database Validations */
         io.github.lc.oss.mc.scheduler.app.entity.Node existing = this.nodeRepo.findByNameIgnoreCase(request.getName());
-        if (existing != null && !StringUtils.equals(existing.getId(), request.getId())) {
+        if (existing != null && !Strings.CS.equals(existing.getId(), request.getId())) {
             messages.add(
                     this.toMessage(Messages.Application.DuplicateNodeName, new Variable("Name", request.getName())));
         }

@@ -3,7 +3,7 @@ package io.github.lc.oss.mc.worker.app.controllers.v1;
 import java.util.Arrays;
 import java.util.Set;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -65,7 +65,7 @@ public class JobController extends AbstractController {
             return this.respond(messages);
         }
 
-        if (!StringUtils.equalsIgnoreCase(request.getBody(), "abort")) {
+        if (!Strings.CS.equals(request.getBody(), "abort")) {
             return this.respond(Arrays.asList(Messages.Application.InvalidField));
         }
 

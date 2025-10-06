@@ -2,7 +2,7 @@ package io.github.lc.oss.mc.scheduler.app.service;
 
 import java.util.Set;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 import org.quartz.Job;
 import org.quartz.JobKey;
 import org.quartz.Scheduler;
@@ -32,7 +32,7 @@ public class ScheduledJobService extends AbstractService {
         try {
             Set<JobKey> jobKeys = this.scheduler.getJobKeys(GroupMatcher.anyGroup());
             JobKey key = jobKeys.stream() //
-                    .filter(k -> StringUtils.equals( //
+                    .filter(k -> Strings.CS.equals( //
                             k.getName(), //
                             JobUtil.getJobKey(jobClass))) //
                     .findAny() //

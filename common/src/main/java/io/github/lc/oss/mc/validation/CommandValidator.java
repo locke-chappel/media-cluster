@@ -2,7 +2,7 @@ package io.github.lc.oss.mc.validation;
 
 import java.util.Set;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 
 import io.github.lc.oss.commons.serialization.Message;
 import io.github.lc.oss.mc.api.Messages;
@@ -25,7 +25,7 @@ public class CommandValidator extends AbstractValidator<String> {
     @Override
     public Set<Message> validate(String instance) {
         Set<Message> messages = this.valid();
-        if (StringUtils.containsAny(instance, CommandValidator.ILLEGAL_ARGUMNETS)) {
+        if (Strings.CS.containsAny(instance, CommandValidator.ILLEGAL_ARGUMNETS)) {
             messages.add(this.toMessage(Messages.Application.InvalidField, this.getFieldVar("command")));
             return messages;
         }

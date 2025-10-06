@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -449,7 +450,7 @@ public class JobService extends AbstractService {
                 if (workerResponse.getStatusCode() == HttpStatus.OK
                         && workerResponse.getBody().getBody().getCurrentJob() != null) {
                     String currentSource = workerResponse.getBody().getBody().getCurrentJob().getSource();
-                    if (StringUtils.equals(currentSource, existing.getSource())) {
+                    if (Strings.CS.equals(currentSource, existing.getSource())) {
                         this.abortJob(node.getId());
                     }
                 }
@@ -459,7 +460,7 @@ public class JobService extends AbstractService {
                  * cannot be reached it almost certainly is not processing anything (or at least
                  * anything worth keeping). We can therefore safely ignore connection issues.
                  */
-                if (!StringUtils.containsIgnoreCase(ex.getMessage(), "Connection refused")) {
+                if (!Strings.CI.contains(ex.getMessage(), "Connection refused")) {
                     throw ex;
                 }
             }
@@ -470,7 +471,7 @@ public class JobService extends AbstractService {
 
             List<String> processingFiles = this.fileService.findProcessingFiles(name, existing.getClusterName());
             for (String file : processingFiles) {
-                if (StringUtils.equals(file, existing.getSource())) {
+                if (Strings.CS.equals(file, existing.getSource())) {
                     this.fileService.moveToNew(existing.getSource(), existing.getClusterName());
                 }
             }

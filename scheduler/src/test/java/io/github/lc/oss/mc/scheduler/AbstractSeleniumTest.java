@@ -1,6 +1,6 @@
 package io.github.lc.oss.mc.scheduler;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.openqa.selenium.By;
@@ -51,7 +51,7 @@ public abstract class AbstractSeleniumTest extends io.github.lc.oss.commons.test
     }
 
     protected void logout(String id) {
-        if (StringUtils.equals("btnSignOut", id)) {
+        if (Strings.CS.equals("btnSignOut", id)) {
             this.clickMenu();
         }
         this.clickById(id);

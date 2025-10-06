@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -103,13 +104,13 @@ public class Profile extends Entity {
         if (this.getAudioArgs() == null) {
             return true;
         }
-        return !this.getAudioArgs().stream().anyMatch(arg -> StringUtils.equals("-an", arg));
+        return !this.getAudioArgs().stream().anyMatch(arg -> Strings.CS.equals("-an", arg));
     }
 
     public boolean hasVideo() {
         if (this.getVideoArgs() == null) {
             return true;
         }
-        return !this.getVideoArgs().stream().anyMatch(arg -> StringUtils.equals("-vn", arg));
+        return !this.getVideoArgs().stream().anyMatch(arg -> Strings.CS.equals("-vn", arg));
     }
 }

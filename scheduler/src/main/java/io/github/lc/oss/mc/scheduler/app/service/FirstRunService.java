@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,7 +77,7 @@ public class FirstRunService extends AbstractRuntimeService {
         try {
             return this.userRepo.count() > 0;
         } catch (Throwable ex) {
-            if (StringUtils.containsIgnoreCase(ex.getMessage(), "this database is empty")) {
+            if (Strings.CS.contains(ex.getMessage(), "this database is empty")) {
                 /*
                  * This happens on a first run where there is no database at all, so make sure
                  * we create one.

@@ -18,6 +18,7 @@ import java.util.TimerTask;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -94,7 +95,7 @@ public class JwtManager extends JwtService {
     protected void log(String message, Throwable ex) {
         if (ex != null) {
             this.logger.error(message, ex);
-        } else if (!StringUtils.equals(message, "Token parsed to null")) {
+        } else if (!Strings.CS.equals(message, "Token parsed to null")) {
             // null tokens are common for the public pages
             this.logger.warn(message);
         }

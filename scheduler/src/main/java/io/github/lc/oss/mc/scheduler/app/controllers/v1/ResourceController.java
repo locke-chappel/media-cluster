@@ -11,7 +11,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
@@ -19,9 +19,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 
 import io.github.lc.oss.commons.identity.model.ApplicationInfo;
-import io.github.lc.oss.mc.security.Authorities;
 import io.github.lc.oss.mc.scheduler.app.service.IdentityService;
 import io.github.lc.oss.mc.scheduler.security.Permissions;
+import io.github.lc.oss.mc.security.Authorities;
 
 @Controller
 @PreAuthorize(Authorities.PUBLIC)
@@ -76,7 +76,7 @@ public class ResourceController extends io.github.lc.oss.commons.web.controllers
 
     @Override
     protected boolean isPageAllowed(Path path) {
-        String filePath = StringUtils.replace(path.toString(), "\\", "/");
+        String filePath = Strings.CS.replace(path.toString(), "\\", "/");
         Matcher matcher = ResourceController.FILTERED_RESOURCE.matcher(filePath);
         if (!matcher.matches()) {
             /* Unfiltered resources are always allowed */

@@ -1,6 +1,6 @@
 package io.github.lc.oss.mc.scheduler.app.filters;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -14,6 +14,6 @@ public class CsrfFilter extends io.github.lc.oss.commons.web.filters.CsrfFilter 
     }
 
     protected boolean isAppApiUrl(String url) {
-        return StringUtils.equalsAnyIgnoreCase(url, "/api/v1/jobs/complete");
+        return Strings.CI.equalsAny(url, "/api/v1/jobs/complete");
     }
 }

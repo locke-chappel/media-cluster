@@ -2,7 +2,7 @@ package io.github.lc.oss.mc.scheduler.app.service;
 
 import java.util.List;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -29,7 +29,7 @@ public class JobCreatorService extends AbstractService {
         final String clusterName = jobs.iterator().next().getClusterName();
         int index = this.jobEntityService.findNextJobIndexForCluster(clusterName);
         for (io.github.lc.oss.mc.api.Job j : jobs) {
-            if (!StringUtils.equals(clusterName, j.getClusterName())) {
+            if (!Strings.CS.equals(clusterName, j.getClusterName())) {
                 this.rollback();
                 this.addMessage(response, Messages.Application.MixedClusterNames);
                 return response;

@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -75,7 +75,7 @@ public class ProfileValidator extends AbstractValidator<Profile> {
             switch (arg) {
                 case "-vf":
                     value = args.get(i + 1);
-                    if (StringUtils.contains(value, "trim")) {
+                    if (Strings.CS.contains(value, "trim")) {
                         response.messages.add(this.toMessage(Messages.Application.ArgsIncludesTrimFilter));
                     }
                     break;

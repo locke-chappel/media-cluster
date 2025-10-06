@@ -1,6 +1,7 @@
 package io.github.lc.oss.mc.service;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 
 import io.github.lc.oss.mc.entity.Constants;
 
@@ -18,10 +19,10 @@ public class PathNormalizer extends io.github.lc.oss.commons.util.PathNormalizer
         }
 
         String tmp = path;
-        if (StringUtils.equals("\\", this.getFileSeparator())) {
-            tmp = StringUtils.replace(path, "/", this.getFileSeparator());
+        if (Strings.CS.equals("\\", this.getFileSeparator())) {
+            tmp = Strings.CS.replace(path, "/", this.getFileSeparator());
         } else {
-            tmp = StringUtils.replace(path, "\\", this.getFileSeparator());
+            tmp = Strings.CS.replace(path, "\\", this.getFileSeparator());
         }
 
         if (!tmp.endsWith(this.getFileSeparator())) {

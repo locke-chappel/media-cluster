@@ -2,7 +2,7 @@ package io.github.lc.oss.mc.scheduler.app.jobs;
 
 import java.util.List;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 import org.quartz.DisallowConcurrentExecution;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
@@ -75,7 +75,7 @@ public class NodeInformJob implements org.quartz.Job {
                  * Special case where worker is temporarily offline. It will get picked up next
                  * scheduled run.
                  */
-                if (!StringUtils.containsIgnoreCase(ex.getMessage(), "Connection refused")) {
+                if (!Strings.CS.contains(ex.getMessage(), "Connection refused")) {
                     throw ex;
                 }
             }

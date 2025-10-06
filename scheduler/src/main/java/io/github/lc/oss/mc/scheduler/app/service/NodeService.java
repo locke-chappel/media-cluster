@@ -4,6 +4,7 @@ import java.security.KeyPair;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -93,7 +94,7 @@ public class NodeService extends AbstractService {
         ServiceResponse<Node> response = new ServiceResponse<>();
 
         io.github.lc.oss.mc.scheduler.app.entity.Node existing = null;
-        if (StringUtils.equals(NodeService.SCHEDULER_ID, id)) {
+        if (Strings.CS.equals(NodeService.SCHEDULER_ID, id)) {
             existing = this.getSchedulerNode();
         } else {
             existing = this.nodeRepo.findById(id).orElse(null);

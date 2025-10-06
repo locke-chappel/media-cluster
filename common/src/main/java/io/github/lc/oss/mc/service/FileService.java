@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.RegExUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
@@ -71,7 +72,7 @@ public class FileService extends AbstractService {
             return response;
         }
 
-        if (!this.validatePath(destFile, root)) {
+        if (!this.validatePath(destFile, this.root)) {
             this.addMessage(response, Messages.Application.InvalidFilePath);
             return response;
         }
@@ -208,7 +209,7 @@ public class FileService extends AbstractService {
         Path p = Paths.get(path).normalize().toAbsolutePath();
         Path root = Paths.get(rootDir).normalize().toAbsolutePath();
 
-        return p.startsWith(root + getFileSeparator());
+        return p.startsWith(root + this.getFileSeparator());
     }
 
     private List<String> toPaths(String prefix, File... files) {
@@ -222,7 +223,7 @@ public class FileService extends AbstractService {
                     if (StringUtils.isBlank(prefix)) {
                         return true;
                     }
-                    return StringUtils.startsWith(name, prefix);
+                    return Strings.CS.startsWith(name, prefix);
                 }). //
                 collect(Collectors.toList());
     }

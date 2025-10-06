@@ -2,7 +2,7 @@ package io.github.lc.oss.mc.scheduler.app.entity;
 
 import java.util.Date;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -49,6 +49,6 @@ public abstract class AbstractBaseEntity {
         if (entity == null) {
             return false;
         }
-        return StringUtils.equals(this.id, entity.getId());
+        return Strings.CS.equals(this.id, entity.getId());
     }
 }

@@ -2,7 +2,7 @@ package io.github.lc.oss.mc.worker.app.validation;
 
 import java.util.Set;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -37,7 +37,7 @@ public class SignedRequestValidator extends AbstractSignedRequestValidator<Signe
             return messages;
         }
 
-        if (!StringUtils.equals(this.config.getId(), request.getNodeId())) {
+        if (!Strings.CS.equals(this.config.getId(), request.getNodeId())) {
             messages.add(this.toMessage(Messages.Application.InvalidNode));
             return messages;
         }

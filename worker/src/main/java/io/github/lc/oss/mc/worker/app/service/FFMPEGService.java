@@ -16,6 +16,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -231,7 +232,7 @@ public class FFMPEGService extends AbstractRuntimeService {
                     if (pArgs != null && !pArgs.isEmpty()) {
                         for (int i = 0; i < pArgs.size(); i++) {
                             String arg = pArgs.get(i);
-                            if (StringUtils.equals("-vf", arg)) {
+                            if (Strings.CS.equals("-vf", arg)) {
                                 if (i + 1 < pArgs.size()) {
                                     videoArgs.add(arg);
                                     i++;
@@ -388,7 +389,7 @@ public class FFMPEGService extends AbstractRuntimeService {
              * Special case: if Windows and a file path (e.g. C:/) convert it to backslashes
              * (e.g. C:\) for proper external process compatibility.
              */
-            if (StringUtils.equals("\\", this.getFileSeparator()) && parts[i].contains(":")) {
+            if (Strings.CS.equals("\\", this.getFileSeparator()) && parts[i].contains(":")) {
                 parts[i] = parts[i].replace("/", this.getFileSeparator());
             }
         }
